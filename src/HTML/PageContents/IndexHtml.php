@@ -18,7 +18,12 @@ class IndexHtml
 
     public function display(RidersModel $ridersModel): void
     {
-        echo "<div class='ridersContainer'>";
+        echo "
+        <header>
+            <h1>Grand Tour GC Riders</h1>
+        </header>
+        <div class='ridersContainer'>
+        ";
         
         $allRiders = $ridersModel->getAllRiders();
 
@@ -39,13 +44,13 @@ class IndexHtml
                     <p><b>Nationality:</b> $rider->nation</p>
                     <p><b>Age:</b> $age</p>
                 </div>
-                <p><b>GC wins:</b></p>
+                <p class='title'><b>GC wins:</b></p>
                 <div class='flexrow'>
                     <p><b>Giro: </b> {$this->nullToZero($rider->giroGC)}</p>
                     <p><b>Tour:</b> {$this->nullToZero($rider->tourGC)}</p>
                     <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaGC)}</p>
                 </div>
-                <p><b>Stage wins:</b></p>
+                <p class='title'><b>Stage wins:</b></p>
                 <div class='flexrow'>
                     <p><b>Giro:</b> {$this->nullToZero($rider->giroStages)}</p>
                     <p><b>Tour:</b> {$this->nullToZero($rider->tourStages)}</p>
