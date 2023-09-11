@@ -1,5 +1,7 @@
 <?php
 
+namespace Collection\Entities;
+
 readonly class Rider
 {
     public int $id;
