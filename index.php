@@ -1,11 +1,3 @@
-<!-- <body>
-
-    <h1>Website Template</h1>
-
-</body>
-
-</html> -->
-
 <?php
 
 use Collection\HTML\HeadHtml;
@@ -21,4 +13,4 @@ $indexHtml = new IndexHtml();
 
 
 $headHtml->display();
-$indexHtml->display();
+$indexHtml->display($ridersModel);

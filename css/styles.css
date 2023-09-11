@@ -3,3 +3,37 @@
 *::after {
   box-sizing: border-box;
 }
+
+.ridersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.riderContainer {
+  width: 300px;
+  margin: 10px 0;
+  border: 1px solid black;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flexrow {
+  display: flex;
+  gap: 20px;
+}
+
+h3 {
+  margin: 0 0 7px 0;
+  font-size: larger;
+  text-align: center;
+}
+
+img {
+  margin: 7px auto;
+}
+
+p {
+  margin: 7px 0;
+}
