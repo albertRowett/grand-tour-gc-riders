@@ -18,7 +18,7 @@ class AddRiderHtml
                 </nav>
             </header>
         
-            <form class='addRiderForm'>
+            <form class='addRiderForm' method='POST'>
                 <h2>Add Rider:</h2>
                 <div class='flexrow'>
                     <label for='name'>Name:</label>
@@ -36,25 +36,25 @@ class AddRiderHtml
                 </div>
                 <div class='flexrow'>
                     <label for='dob'>Date of Birth:</label>
-                    <input type='date' id='dob' name='dob' placeholder='Required' />
+                    <input type='date' id='dob' name='dob' />
                 </div>
                 <p><b>GC wins:</b></p>
                 <div class='flexrow'>
                     <label for='giroGcWins'>Giro:</label>
-                    <input type='number' class='numberInput' id='giroGcWins' name='giroGcWins' min='0' />
+                    <input type='number' class='numberInput' id='giroGcWins' name='giroGcWins' value='0' min='0' />
                     <label for='tourGcWins'>Tour:</label>
-                    <input type='number' class='numberInput' id='tourGcWins' name='tourGcWins' min='0' />
+                    <input type='number' class='numberInput' id='tourGcWins' name='tourGcWins' value='0' min='0' />
                     <label for='vueltaGcWins'>Vuelta:</label>
-                    <input type='number' class='numberInput' id='vueltaGcWins' name='vueltaGcWins' min='0' />
+                    <input type='number' class='numberInput' id='vueltaGcWins' name='vueltaGcWins' value='0' min='0' />
                 </div>
                 <p><b>Stage wins:</b></p>
                 <div class='flexrow'>
                     <label for='giroStageWins'>Giro:</label>
-                    <input type='number' class='numberInput' id='giroStageWins' name='giroStageWins' min='0' />
+                    <input type='number' class='numberInput' id='giroStageWins' name='giroStageWins' value='0' min='0' />
                     <label for='tourStageWins'>Tour:</label>
-                    <input type='number' class='numberInput' id='tourStageWins' name='tourStageWins' min='0' />
+                    <input type='number' class='numberInput' id='tourStageWins' name='tourStageWins' value='0' min='0' />
                     <label for='vueltaStageWins'>Vuelta:</label>
-                    <input type='number' class='numberInput' id='vueltaStageWins' name='vueltaStageWins' min='0' />
+                    <input type='number' class='numberInput' id='vueltaStageWins' name='vueltaStageWins' value='0' min='0' />
                 </div>
                 <input type='submit' name='submit' value='Submit' />
             </form>
