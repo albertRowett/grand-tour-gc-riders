@@ -64,15 +64,19 @@ if (
 ) {
     $teamId = $ridersModel->getTeamIdFromTeam($team);
     $nationId = $ridersModel->getNationIdFromNationality($nationality);
+
+    if ($teamId === false) {
+        $ridersModel->addTeam($team);
+        $teamId = $ridersModel->getTeamIdFromTeam($team);
+    }
+
+    if ($nationId === false) {
+        $ridersModel->addNation($nationality);
+        $nationId = $ridersModel->getNationIdFromNationality($nationality);
+    }
 }
 
-if ($teamId === false) {
-    $teamId = $ridersModel->addTeamAndGetTeamId($team);
-}
 
-if ($nationId === false) {
-    $nationId = $ridersModel->addNationAndGetNationId($nationality);
-}
 
 // Displaying page
 $headHtml->display();
@@ -80,4 +84,5 @@ $addRiderHtml->display();
 
 echo '<pre><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />';
 var_dump($name, $image, $team, $nationality, $dob, $giroGcWins, $tourGcWins, $vueltaGcWins, $giroStageWins, $tourStageWins, $vueltaStageWins,
-$nameValidation, $imageValidation, $teamValidation, $nationalityValidation, $dobValidation);
+$nameValidation, $imageValidation, $teamValidation, $nationalityValidation, $dobValidation,
+$teamId, $nationId);

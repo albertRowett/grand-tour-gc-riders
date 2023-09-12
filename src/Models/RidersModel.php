@@ -73,7 +73,7 @@ class RidersModel
         $data = $query->fetch();
 
         if ($data) {
-            return $data;
+            return $data['id'];
         }
         return false;
     }
@@ -85,32 +85,20 @@ class RidersModel
         $data = $query->fetch();
 
         if ($data) {
-            return $data;
+            return $data['id'];
         }
         return false;
     }
 
-    public function addTeamAndGetTeamId(string $team): int
+    public function addTeam(string $team): void
     {
-        $query = $this->db->prepare('
-        INSERT INTO `teams` (`team`) VALUES (:team);
-        SELECT `id` FROM `teams` WHERE `team` = :team;
-        ');
+        $query = $this->db->prepare('INSERT INTO `teams` (`team`) VALUES (:team);');
         $query->execute(['team' => $team]);
-        $data = $query->fetch();
-
-        return $data;
     }
 
-    public function addNationAndGetNationId(string $nation): int
+    public function addNation(string $nation): void
     {
-        $query = $this->db->prepare('
-        INSERT INTO `nations` (`nation`) VALUES (:nation);
-        SELECT `id` FROM `nations` WHERE `nation` = :nation;
-        ');
+        $query = $this->db->prepare('INSERT INTO `nations` (`nation`) VALUES (:nation);');
         $query->execute(['nation' => $nation]);
-        $data = $query->fetch();
-
-        return $data;
     }
 }
