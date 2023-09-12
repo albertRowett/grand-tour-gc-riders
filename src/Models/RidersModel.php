@@ -16,8 +16,8 @@ class RidersModel
 
     public function getAllRiders(): array|false
     {
-        $query = $this->db->prepare(
-            'SELECT
+        $query = $this->db->prepare('
+            SELECT
             `riders`.`id`,
             `riders`.`name`,
             `riders`.`image`,
@@ -35,8 +35,8 @@ class RidersModel
                     ON `riders`.`team_id` = `teams`.`id`
                 INNER JOIN `nations`
                     ON `riders`.`nation_id` = `nations`.`id`
-            ORDER BY `riders`.`dob`;'
-        );
+            ORDER BY `riders`.`dob`;
+        ');
         $query->execute();
         $data = $query->fetchAll();
 
@@ -64,5 +64,53 @@ class RidersModel
         }
 
         return $allRiders;
+    }
+
+    public function getTeamIdFromTeam(string $team): int|false
+    {
+        $query = $this->db->prepare('SELECT `id` FROM `teams` WHERE `team` = :team;');
+        $query->execute(['team' => $team]);
+        $data = $query->fetch();
+
+        if ($data) {
+            return $data;
+        }
+        return false;
+    }
+
+    public function getNationIdFromNationality(string $nationality): int|false
+    {
+        $query = $this->db->prepare('SELECT `id` FROM `nations` WHERE `nation` = :nation;');
+        $query->execute(['nation' => $nationality]);
+        $data = $query->fetch();
+
+        if ($data) {
+            return $data;
+        }
+        return false;
+    }
+
+    public function addTeamAndGetTeamId(string $team): int
+    {
+        $query = $this->db->prepare('
+        INSERT INTO `teams` (`team`) VALUES (:team);
+        SELECT `id` FROM `teams` WHERE `team` = :team;
+        ');
+        $query->execute(['team' => $team]);
+        $data = $query->fetch();
+
+        return $data;
+    }
+
+    public function addNationAndGetNationId(string $nation): int
+    {
+        $query = $this->db->prepare('
+        INSERT INTO `nations` (`nation`) VALUES (:nation);
+        SELECT `id` FROM `nations` WHERE `nation` = :nation;
+        ');
+        $query->execute(['nation' => $nation]);
+        $data = $query->fetch();
+
+        return $data;
     }
 }
