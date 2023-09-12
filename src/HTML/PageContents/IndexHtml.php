@@ -34,7 +34,7 @@ class IndexHtml
                 $dob = new DateTime($rider->dob);
                 $diff = $today->diff($dob);
                 $age = $diff->y;
-    
+
                 echo "
                 <div class='riderContainer'>
                     <h3>$rider->name</h3>
@@ -62,7 +62,7 @@ class IndexHtml
         } else {
             echo 'No riders found';
         }
-        
+
         echo "
             </div>
         </body>";
