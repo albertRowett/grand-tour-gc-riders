@@ -101,4 +101,61 @@ class RidersModel
         $query = $this->db->prepare('INSERT INTO `nations` (`nation`) VALUES (:nation);');
         $query->execute(['nation' => $nation]);
     }
+
+    public function addRider(
+        string $name,
+        string $image,
+        int $teamId,
+        int $nationId,
+        string $dob,
+        ?int $giroGcWins,
+        ?int $tourGcWins,
+        ?int $vueltaGcWins,
+        ?int $giroStageWins,
+        ?int $tourStageWins,
+        ?int $vueltaStageWins
+    ): void
+    {
+        $query = $this->db->prepare("
+            INSERT INTO `riders` (
+            `name`,
+            `image`,
+            `team_id`,
+            `nation_id`,
+            `dob`,
+            `giro_gc`,
+            `tour_gc`,
+            `vuelta_gc`,
+            `giro_stages`,
+            `tour_stages`,
+            `vuelta_stages`
+            )
+            VALUES (
+            :name,
+            :image,
+            $teamId,
+            $nationId,
+            :dob,
+            :giroGcWins,
+            :tourGcWins,
+            :vueltaGcWins,
+            :giroStageWins,
+            :tourStageWins,
+            :vueltaStageWins
+            );
+        ");
+        $query->execute(
+            [
+                'name' => $name,
+                'image' => $image,
+                'dob' => $dob,
+                'giroGcWins' => $giroGcWins,
+                'tourGcWins' => $tourGcWins,
+                'vueltaGcWins' => $vueltaGcWins,
+                'giroStageWins' => $giroStageWins,
+                'tourStageWins' => $tourStageWins,
+                'vueltaStageWins' => $vueltaStageWins
+            ]
+        );
+    }
 }
