@@ -12,6 +12,10 @@ class AddRiderHtml
         <body>
             <header>
                 <h1>Grand Tour GC Riders</h1>
+                <nav>
+                    <a href='index.php'>View Riders</a>
+                    <a href='addRider.php'>Add a Rider</a>
+                </nav>
             </header>
         
             <form class='addRiderForm'>

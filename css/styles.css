@@ -16,12 +16,29 @@ header {
 h1 {
   font-size: x-large;
   text-align: center;
-  margin: 15px;
+  margin: 15px 0 7.5px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 7.5px 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: small;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .ridersContainer {
   position: absolute;
-  top: 57.6px;
+  top: 72.55px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -64,7 +81,7 @@ p {
 
 .addRiderForm {
   position: absolute;
-  top: 57.6px;
+  top: 72.55px;
   width: 330px;
   margin: 15px auto;
   border: 1px solid black;
