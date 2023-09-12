@@ -11,6 +11,5 @@ $ridersModel = new RidersModel($db);
 $headHtml = new HeadHtml();
 $indexHtml = new IndexHtml();
 
-
 $headHtml->display();
 $indexHtml->display($ridersModel);

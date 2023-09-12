@@ -7,7 +7,6 @@ use DateTime;
 
 class IndexHtml
 {
-
     private function nullToZero(int|null $wins): int
     {
         if ($wins === null) {
@@ -24,13 +23,12 @@ class IndexHtml
         </header>
         <div class='ridersContainer'>
         ";
-        
+
         $allRiders = $ridersModel->getAllRiders();
 
         $today = new DateTime(date('y-m-d'));
 
         foreach ($allRiders as $rider) {
-        
             $dob = new DateTime($rider->dob);
             $diff = $today->diff($dob);
             $age = $diff->y;
