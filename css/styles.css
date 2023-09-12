@@ -29,17 +29,17 @@ h1 {
 
 .riderContainer {
   width: 300px;
-  margin: 15px 15px;
+  margin: 15px;
   border: 1px solid black;
   border-radius: 15px;
-  padding: 7.5px 15px;
+  padding: 17.5px 25px;
   display: flex;
   flex-direction: column;
 }
 
 .flexrow {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
 }
 
 h3 {

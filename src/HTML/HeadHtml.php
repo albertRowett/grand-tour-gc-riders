@@ -11,7 +11,7 @@ class HeadHtml
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <title>Pro Cyclists Collection</title>
+            <title>Grand Tour GC Riders</title>
 
             <meta name="description" content="Template HTML file">
             <meta name="author" content="iO Academy">
