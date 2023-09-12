@@ -40,6 +40,10 @@ class RidersModel
         $query->execute();
         $data = $query->fetchAll();
 
+        if (!$data) {
+            return false;
+        }
+
         $allRiders = [];
         foreach ($data as $datum) {
             $rider = new Rider(

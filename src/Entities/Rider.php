@@ -10,12 +10,12 @@ readonly class Rider
     public string $team;
     public string $nation;
     public string $dob;
-    public int|null $giroGC;
-    public int|null $tourGC;
-    public int|null $vueltaGC;
-    public int|null $giroStages;
-    public int|null $tourStages;
-    public int|null $vueltaStages;
+    public ?int $giroGC;
+    public ?int $tourGC;
+    public ?int $vueltaGC;
+    public ?int $giroStages;
+    public ?int $tourStages;
+    public ?int $vueltaStages;
 
     public function __construct(
         int $id,
@@ -24,12 +24,12 @@ readonly class Rider
         string $team,
         string $nation,
         string $dob,
-        int|null $giroGC,
-        int|null $tourGC,
-        int|null $vueltaGC,
-        int|null $giroStages,
-        int|null $tourStages,
-        int|null $vueltaStages
+        ?int $giroGC,
+        ?int $tourGC,
+        ?int $vueltaGC,
+        ?int $giroStages,
+        ?int $tourStages,
+        ?int $vueltaStages
     ) {
         $this->id = $id;
         $this->name = $name;
