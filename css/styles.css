@@ -3,3 +3,59 @@
 *::after {
   box-sizing: border-box;
 }
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-size: x-large;
+  text-align: center;
+  margin: 15px;
+}
+
+.ridersContainer {
+  position:absolute;
+  top: 57.6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.riderContainer {
+  width: 300px;
+  margin: 15px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 17.5px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flexrow {
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  margin: 7.5px 0;
+  font-size: larger;
+  text-align: center;
+}
+
+img {
+  margin: 7.5px auto;
+}
+
+p {
+  margin: 7.5px 0;
+}
+
+.title {
+  margin-bottom: 0;
+}
