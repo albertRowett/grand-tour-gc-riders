@@ -20,7 +20,7 @@ h1 {
 }
 
 .ridersContainer {
-  position:absolute;
+  position: absolute;
   top: 57.6px;
   display: flex;
   flex-wrap: wrap;
@@ -58,4 +58,26 @@ p {
 
 .title {
   margin-bottom: 0;
+}
+
+/* Apply to addRider page only */
+
+.addRiderForm {
+  position: absolute;
+  top: 57.6px;
+  width: 330px;
+  margin: 15px auto;
+  border: 1px solid black;
+}
+
+h2 {
+  font-size: large;
+}
+
+label {
+  font-weight: bold;
+}
+
+.numberInput {
+  width: 50px;
 }
