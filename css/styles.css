@@ -83,17 +83,19 @@ p {
 .addRiderContainer {
   position: absolute;
   top: 72.55px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 h2 {
-  margin: 15px 15px 0 15px;
+  margin: 15px 0;
   font-size: large;
 }
 
 .addRiderStats {
   width: 330px;
-  margin: 15px;
-  margin-bottom: 7.5px;
+  margin: 15px 0 7.5px 0;
   border: 1px solid black;
   border-radius: 15px;
   padding: 17.5px 25px;
@@ -135,7 +137,6 @@ label {
 }
 
 .errorMessage {
-  margin: 0;
   color: red;
 }
 
@@ -143,6 +144,6 @@ label {
   display: none;
 }
 
-.submitButton {
-  margin: 7.5px 0 0 0;
+.submitAndError {
+  text-align: center;
 }
