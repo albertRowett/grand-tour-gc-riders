@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 require_once 'vendor/autoload.php';
 
 class RiderFormValidatorTest extends TestCase
-{    
-    public function test_success_allFieldsValid()
+{
+    public function testSuccessAllFieldsValid()
     {
         $sut = new RiderFormValidator();
         $name = 'a';
@@ -19,7 +19,7 @@ class RiderFormValidatorTest extends TestCase
         $this->assertTrue($sut->validateRiderForm($name, $image, $team, $nation, $dob));
     }
 
-    public function test_failure_nameInvalid()
+    public function testFailureNameInvalid()
     {
         $sut = new RiderFormValidator();
         $name = '';
@@ -31,7 +31,7 @@ class RiderFormValidatorTest extends TestCase
         $this->assertFalse($sut->validateRiderForm($name, $image, $team, $nation, $dob));
     }
 
-    public function test_failure_imageInvalid()
+    public function testFailureImageInvalid()
     {
         $sut = new RiderFormValidator();
         $name = 'a';
@@ -43,7 +43,7 @@ class RiderFormValidatorTest extends TestCase
         $this->assertFalse($sut->validateRiderForm($name, $image, $team, $nation, $dob));
     }
 
-    public function test_failure_teamInvalid()
+    public function testFailureTeamInvalid()
     {
         $sut = new RiderFormValidator();
         $name = 'a';
@@ -55,7 +55,7 @@ class RiderFormValidatorTest extends TestCase
         $this->assertFalse($sut->validateRiderForm($name, $image, $team, $nation, $dob));
     }
 
-    public function test_failure_nationInvalid()
+    public function testFailureNationInvalid()
     {
         $sut = new RiderFormValidator();
         $name = 'a';
@@ -67,7 +67,7 @@ class RiderFormValidatorTest extends TestCase
         $this->assertFalse($sut->validateRiderForm($name, $image, $team, $nation, $dob));
     }
 
-    public function test_failure_dobInvalid()
+    public function testFailureDobInvalid()
     {
         $sut = new RiderFormValidator();
         $name = 'a';
@@ -79,7 +79,7 @@ class RiderFormValidatorTest extends TestCase
         $this->assertFalse($sut->validateRiderForm($name, $image, $team, $nation, $dob));
     }
 
-    public function test_malformed_inputsNotStrings()
+    public function testMalformedInputsNotStrings()
     {
         $sut = new RiderFormValidator();
         $name = ['a'];
