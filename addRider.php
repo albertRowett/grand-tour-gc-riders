@@ -2,12 +2,16 @@
 
 use Collection\HTML\HeadHtml;
 use Collection\HTML\PageContents\AddRiderHtml;
+use Collection\Models\NationsModel;
 use Collection\Models\RidersModel;
+use Collection\Models\TeamsModel;
 
 require_once 'database.php';
 require_once 'vendor/autoload.php';
 
 $ridersModel = new RidersModel($db);
+$teamsModel = new TeamsModel($db);
+$nationsModel = new NationsModel($db);
 $headHtml = new HeadHtml();
 $addRiderHtml = new AddRiderHtml();
 
@@ -15,7 +19,7 @@ $addRiderHtml = new AddRiderHtml();
 $name = $_POST['name'] ?? false;
 $image = $_POST['image'] ?? false;
 $team = $_POST['team'] ?? false;
-$nationality = $_POST['nationality'] ?? false;
+$nation = $_POST['nation'] ?? false;
 $dob = $_POST['dob'] ?? false;
 $giroGcWins = $_POST['giroGcWins'] ?? false;
 $tourGcWins = $_POST['tourGcWins'] ?? false;
@@ -42,10 +46,10 @@ if (strlen($team) > 0) {
     $teamValidation = false;
 }
 
-if (strlen($nationality) > 0) {
-    $nationalityValidation = true;
+if (strlen($nation) > 0) {
+    $nationValidation = true;
 } else {
-    $nationalityValidation = false;
+    $nationValidation = false;
 }
 
 if (strlen($dob) === 10) {
@@ -58,20 +62,20 @@ if (
     $nameValidation &&
     $imageValidation &&
     $teamValidation &&
-    $nationalityValidation &&
+    $nationValidation &&
     $dobValidation
 ) {
-    $teamId = $ridersModel->getTeamIdFromTeam($team);
-    $nationId = $ridersModel->getNationIdFromNationality($nationality);
+    $teamId = $teamsModel->getIdFromTeam($team);
+    $nationId = $nationsModel->getIdFromNation($nation);
 
     if ($teamId === false) {
-        $ridersModel->addTeam($team);
-        $teamId = $ridersModel->getTeamIdFromTeam($team);
+        $teamsModel->addTeam($team);
+        $teamId = $teamsModel->getIdFromTeam($team);
     }
 
     if ($nationId === false) {
-        $ridersModel->addNation($nationality);
-        $nationId = $ridersModel->getNationIdFromNationality($nationality);
+        $nationsModel->addNation($nation);
+        $nationId = $nationsModel->getIdFromNation($nation);
     }
 
     $ridersModel->addRider(

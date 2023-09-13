@@ -45,7 +45,7 @@ class IndexHtml
                     <img src='$rider->image' alt='$rider->name in $rider->team jersey' />
                     <p><b>Team:</b> $rider->team</p>
                     <div class='flexrow'>
-                        <p><b>Nationality:</b> $rider->nation</p>
+                        <p><b>Nation:</b> $rider->nation</p>
                         <p><b>Age:</b> $age</p>
                     </div>
                     <p class='title'><b>GC wins:</b></p>

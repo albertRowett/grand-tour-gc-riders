@@ -36,8 +36,8 @@ class AddRiderHtml
                                 <input type='text' class='textInput' id='team' name='team' placeholder='Required' />
                             </div>
                             <div class='statRow'>
-                                <label for='nationality'>Nationality:</label>
-                                <input type='text' class='textInput' id='nationality' name='nationality' placeholder='Required' />
+                                <label for='nation'>Nation:</label>
+                                <input type='text' class='textInput' id='nation' name='nation' placeholder='Required' />
                             </div>
                             <div class='statRow'>
                                 <label for='dob'>Date of Birth:</label>
