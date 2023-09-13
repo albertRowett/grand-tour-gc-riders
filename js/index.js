@@ -1,7 +1,6 @@
 document.querySelector('.addRiderForm').addEventListener('submit', handleSubmit)
 
 function handleSubmit(submit) {
-    submit.preventDefault()
     const nameInput = document.querySelector('#name').value
     const imageInput = document.querySelector('#image').value
     const teamInput = document.querySelector('#team').value
@@ -15,6 +14,7 @@ function handleSubmit(submit) {
         nationalityInput === '' ||
         dobInput === ''
     ) {
+        submit.preventDefault()
         document.querySelector('.errorMessage').classList.remove('hidden')
     }
 }

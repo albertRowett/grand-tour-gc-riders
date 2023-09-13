@@ -87,13 +87,10 @@ if (
         $tourStageWins,
         $vueltaStageWins
     );
+
+    header('Location: index.php');
 }
 
-// Displaying page
+// Displaying the page
 $headHtml->display();
 $addRiderHtml->display();
-
-// echo '<pre><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />';
-// var_dump($name, $image, $team, $nationality, $dob, $giroGcWins, $tourGcWins, $vueltaGcWins, $giroStageWins, $tourStageWins, $vueltaStageWins,
-// $nameValidation, $imageValidation, $teamValidation, $nationalityValidation, $dobValidation,
-// $teamId, $nationId);

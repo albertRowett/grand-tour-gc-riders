@@ -35,7 +35,7 @@ class RidersModel
                     ON `riders`.`team_id` = `teams`.`id`
                 INNER JOIN `nations`
                     ON `riders`.`nation_id` = `nations`.`id`
-            ORDER BY `riders`.`dob`;
+            ORDER BY `riders`.`id` DESC;
         ');
         $query->execute();
         $data = $query->fetchAll();
