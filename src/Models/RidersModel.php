@@ -114,8 +114,7 @@ class RidersModel
         ?int $giroStageWins,
         ?int $tourStageWins,
         ?int $vueltaStageWins
-    ): void
-    {
+    ): void {
         $query = $this->db->prepare("
             INSERT INTO `riders` (
             `name`,

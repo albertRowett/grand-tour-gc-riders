@@ -48,7 +48,7 @@ if (strlen($nationality) > 0) {
     $nationalityValidation = false;
 }
 
-if(strlen($dob) === 10) {
+if (strlen($dob) === 10) {
     $dobValidation = true;
 } else {
     $dobValidation = false;
