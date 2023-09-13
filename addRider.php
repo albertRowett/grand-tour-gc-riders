@@ -5,10 +5,12 @@ use Collection\HTML\PageContents\AddRiderHtml;
 use Collection\Models\NationsModel;
 use Collection\Models\RidersModel;
 use Collection\Models\TeamsModel;
+use Collection\RiderFormValidator;
 
 require_once 'database.php';
 require_once 'vendor/autoload.php';
 
+$riderFormValidator = new RiderFormValidator();
 $ridersModel = new RidersModel($db);
 $teamsModel = new TeamsModel($db);
 $nationsModel = new NationsModel($db);
@@ -28,43 +30,7 @@ $giroStageWins = $_POST['giroStageWins'] ?? false;
 $tourStageWins = $_POST['tourStageWins'] ?? false;
 $vueltaStageWins = $_POST['vueltaStageWins'] ?? false;
 
-if (strlen($name) > 0) {
-    $nameValidation = true;
-} else {
-    $nameValidation = false;
-}
-
-if (strlen($image) > 0) {
-    $imageValidation = true;
-} else {
-    $imageValidation = false;
-}
-
-if (strlen($team) > 0) {
-    $teamValidation = true;
-} else {
-    $teamValidation = false;
-}
-
-if (strlen($nation) > 0) {
-    $nationValidation = true;
-} else {
-    $nationValidation = false;
-}
-
-if (strlen($dob) === 10) {
-    $dobValidation = true;
-} else {
-    $dobValidation = false;
-}
-
-if (
-    $nameValidation &&
-    $imageValidation &&
-    $teamValidation &&
-    $nationValidation &&
-    $dobValidation
-) {
+if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob)) {
     $teamId = $teamsModel->getIdFromTeam($team);
     $nationId = $nationsModel->getIdFromNation($nation);
 
