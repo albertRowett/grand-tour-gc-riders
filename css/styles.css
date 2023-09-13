@@ -57,6 +57,7 @@ a:hover {
 .flexrow {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 h3 {
@@ -79,22 +80,59 @@ p {
 
 /* Apply to addRider page only */
 
-.addRiderForm {
+.addRiderContainer {
   position: absolute;
   top: 72.55px;
-  width: 330px;
-  margin: 15px auto;
-  border: 1px solid black;
 }
 
 h2 {
+  margin: 15px 15px 0 15px;
   font-size: large;
+}
+
+.addRiderStats {
+  width: 330px;
+  margin: 15px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 17.5px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.statRow {
+  margin: 7.5px 0;
+}
+
+.statRow.nameRow {
+  text-align: center;
+}
+
+.statRow.imgRow {
+  margin: 7.5px auto;
 }
 
 label {
   font-weight: bold;
 }
 
+.textInput {
+  width: 192px;
+}
+
+.imgInput {
+  width: 112px;
+  min-width: 112px;
+  max-width: 112px;
+  height: 174px;
+  min-height: 174px;
+  max-height: 174px;
+}
+
 .numberInput {
-  width: 50px;
+  width: 45px;
+}
+
+.submitButton {
+  margin: 0;
 }

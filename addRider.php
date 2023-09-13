@@ -12,7 +12,6 @@ $headHtml = new HeadHtml();
 $addRiderHtml = new AddRiderHtml();
 
 // Handling form submission
-
 $name = $_POST['name'] ?? false;
 $image = $_POST['image'] ?? false;
 $team = $_POST['team'] ?? false;
@@ -89,8 +88,6 @@ if (
         $vueltaStageWins
     );
 }
-
-
 
 // Displaying page
 $headHtml->display();
