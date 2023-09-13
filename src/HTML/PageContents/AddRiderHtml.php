@@ -20,7 +20,7 @@ class AddRiderHtml
 
             <div class='addRiderContainer'>
                 <h2>Add Rider:</h2>
-                <form method='POST'>
+                <form class='addRiderForm' method='POST'>
                     <div class='addRiderStats'>
                         <div class='statRow nameRow'>
                             <label for='name'>Name:</label>
@@ -61,6 +61,7 @@ class AddRiderHtml
                             <input type='number' class='numberInput' id='vueltaStageWins' name='vueltaStageWins' value='0' min='0' />
                         </div>
                     </div>
+                    <p class='errorMessage hidden'>Please add all required details (includes DoB)</p>
                     <input type='submit' class='submitButton' name='submit' value='Submit' />
                 </form>
             </div>

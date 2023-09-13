@@ -93,6 +93,7 @@ h2 {
 .addRiderStats {
   width: 330px;
   margin: 15px;
+  margin-bottom: 7.5px;
   border: 1px solid black;
   border-radius: 15px;
   padding: 17.5px 25px;
@@ -133,6 +134,15 @@ label {
   width: 45px;
 }
 
-.submitButton {
+.errorMessage {
   margin: 0;
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.submitButton {
+  margin: 7.5px 0 0 0;
 }
