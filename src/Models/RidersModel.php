@@ -78,7 +78,7 @@ class RidersModel
         ?int $giroStageWins,
         ?int $tourStageWins,
         ?int $vueltaStageWins
-    ): void {
+    ): bool {
         $query = $this->db->prepare("
             INSERT INTO `riders` (
             `name`,
@@ -107,7 +107,7 @@ class RidersModel
             :vueltaStageWins
             );
         ");
-        $query->execute(
+        return $query->execute(
             [
                 'name' => $name,
                 'image' => $image,

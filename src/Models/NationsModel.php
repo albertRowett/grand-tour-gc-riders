@@ -25,9 +25,9 @@ class NationsModel
         return false;
     }
 
-    public function addNation(string $nation): void
+    public function addNation(string $nation): bool
     {
         $query = $this->db->prepare('INSERT INTO `nations` (`nation`) VALUES (:nation);');
-        $query->execute(['nation' => $nation]);
+        return $query->execute(['nation' => $nation]);
     }
 }

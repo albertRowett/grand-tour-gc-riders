@@ -25,9 +25,9 @@ class TeamsModel
         return false;
     }
 
-    public function addTeam(string $team): void
+    public function addTeam(string $team): bool
     {
         $query = $this->db->prepare('INSERT INTO `teams` (`team`) VALUES (:team);');
-        $query->execute(['team' => $team]);
+        return $query->execute(['team' => $team]);
     }
 }
