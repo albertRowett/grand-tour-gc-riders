@@ -67,7 +67,7 @@ class IndexHtml
                 ";
             }
         } else {
-            echo 'No riders found';
+            echo "<p class='noRidersError'>No riders found</p>";
         }
 
         echo "

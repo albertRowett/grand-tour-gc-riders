@@ -41,6 +41,7 @@ a:hover {
   top: 72.55px;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
 }
 
@@ -86,6 +87,10 @@ p {
 
 .retireButton {
   font-size: small;
+}
+
+.noRidersError {
+margin: 15px auto;
 }
 
 /* Apply to addRider page only: */
