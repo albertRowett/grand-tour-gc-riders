@@ -16,12 +16,29 @@ header {
 h1 {
   font-size: x-large;
   text-align: center;
-  margin: 15px;
+  margin: 15px 0 7.5px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 7.5px 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: small;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .ridersContainer {
-  position:absolute;
-  top: 57.6px;
+  position: absolute;
+  top: 72.55px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -40,6 +57,7 @@ h1 {
 .flexrow {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 h3 {
@@ -58,4 +76,83 @@ p {
 
 .title {
   margin-bottom: 0;
+}
+
+/* Apply to addRider page only */
+
+.addRiderContainer {
+  position: absolute;
+  top: 72.55px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.width330 {
+  width: 330px;
+}
+
+.addRiderError {
+  margin-top: 15px;
+  color: red;
+}
+
+h2 {
+  margin: 15px 0;
+  font-size: large;
+}
+
+.addRiderStats {
+  width: 330px;
+  margin: 15px 0 7.5px 0;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 17.5px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.statRow {
+  margin: 7.5px 0;
+}
+
+.statRow.nameRow {
+  text-align: center;
+}
+
+.statRow.imgRow {
+  margin: 7.5px auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+.textInput {
+  width: 192px;
+}
+
+.imgInput {
+  width: 112px;
+  min-width: 112px;
+  max-width: 112px;
+  height: 174px;
+  min-height: 174px;
+  max-height: 174px;
+}
+
+.numberInput {
+  width: 45px;
+}
+
+.validationError {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.submitAndError {
+  text-align: center;
 }

@@ -21,6 +21,10 @@ class IndexHtml
         <body>
             <header>
                 <h1>Grand Tour GC Riders</h1>
+                <nav>
+                    <a href='index.php'>View Riders</a>
+                    <a href='addRider.php'>Add a Rider</a>
+                </nav>
             </header>
             <div class='ridersContainer'>
         ";
@@ -41,7 +45,7 @@ class IndexHtml
                     <img src='$rider->image' alt='$rider->name in $rider->team jersey' />
                     <p><b>Team:</b> $rider->team</p>
                     <div class='flexrow'>
-                        <p><b>Nationality:</b> $rider->nation</p>
+                        <p><b>Nation:</b> $rider->nation</p>
                         <p><b>Age:</b> $age</p>
                     </div>
                     <p class='title'><b>GC wins:</b></p>
