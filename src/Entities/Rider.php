@@ -16,6 +16,7 @@ readonly class Rider
     public ?int $giroStages;
     public ?int $tourStages;
     public ?int $vueltaStages;
+    public int $retired;
 
     public function __construct(
         int $id,
@@ -29,7 +30,8 @@ readonly class Rider
         ?int $vueltaGC,
         ?int $giroStages,
         ?int $tourStages,
-        ?int $vueltaStages
+        ?int $vueltaStages,
+        int $retired
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -43,5 +45,6 @@ readonly class Rider
         $this->giroStages = $giroStages;
         $this->tourStages = $tourStages;
         $this->vueltaStages = $vueltaStages;
+        $this->retired = $retired;
     }
 }

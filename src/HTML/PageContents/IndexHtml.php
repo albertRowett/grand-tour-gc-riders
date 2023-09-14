@@ -29,7 +29,7 @@ class IndexHtml
             <div class='ridersContainer'>
         ";
 
-        $allRiders = $ridersModel->getAllRiders();
+        $allRiders = $ridersModel->getActiveRiders();
 
         if ($allRiders) {
             $today = new DateTime(date('y-m-d'));
