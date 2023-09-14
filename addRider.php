@@ -51,18 +51,19 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
     }
 
     if ($ridersModel->addRider(
-        $name,
-        $image,
-        $teamId,
-        $nationId,
-        $dob,
-        $giroGcWins,
-        $tourGcWins,
-        $vueltaGcWins,
-        $giroStageWins,
-        $tourStageWins,
-        $vueltaStageWins
-    )) {
+            $name,
+            $image,
+            $teamId,
+            $nationId,
+            $dob,
+            $giroGcWins,
+            $tourGcWins,
+            $vueltaGcWins,
+            $giroStageWins,
+            $tourStageWins,
+            $vueltaStageWins
+        )
+    ) {
         header('Location: index.php');
     } else {
         header('Location: addRider.php?error=1');
