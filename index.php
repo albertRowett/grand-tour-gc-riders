@@ -16,7 +16,7 @@ $allRiders = $ridersModel->getActiveRiders();
 
 foreach ($allRiders as $rider) {
     $retireClicked = $_POST[$rider->id] ?? false;
-    
+
     if ($retireClicked) {
         if (!$ridersModel->retireRider($rider->id)) {
             header('Location: index.php?error=1');

@@ -4,7 +4,8 @@ namespace Collection\HTML\PageContents;
 
 class AddRiderHtml
 {
-    private function addRiderError() {
+    private function addRiderError()
+    {
         if ($_GET['error'] === '1') {
             return 'An error occurred while adding the rider. Please try again later.';
         }
