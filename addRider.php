@@ -50,7 +50,8 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
         }
     }
 
-    if ($ridersModel->addRider(
+    if (
+        $ridersModel->addRider(
             $name,
             $image,
             $teamId,
