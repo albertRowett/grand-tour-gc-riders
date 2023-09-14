@@ -18,13 +18,12 @@ foreach ($allRiders as $rider) {
     $retireClicked = $_POST[$rider->id] ?? false;
     
     if ($retireClicked) {
-        $ridersModel->retireRider($rider->id);
+        if (!$ridersModel->retireRider($rider->id)) {
+            header('Location: index.php?error=1');
+        }
     }
 }
 
 // Displaying the page
 $headHtml->display();
 $indexHtml->display($ridersModel);
-
-// echo '<pre><br/><br/>';
-// var_dump($_POST);

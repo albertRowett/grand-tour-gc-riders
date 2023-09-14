@@ -93,6 +93,11 @@ p {
 margin: 15px auto;
 }
 
+.dbError {
+  margin-top: 15px;
+  color: red;
+}
+
 /* Apply to addRider page only: */
 
 .addRiderContainer {
@@ -105,11 +110,6 @@ margin: 15px auto;
 
 .width330 {
   width: 330px;
-}
-
-.addRiderError {
-  margin-top: 15px;
-  color: red;
 }
 
 h2 {

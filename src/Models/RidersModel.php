@@ -129,7 +129,7 @@ class RidersModel
 
     public function retireRider($id): bool
     {
-        $query = $this->db->prepare('UPDATE `riders` SET `retired` = 1 WHERE `id` = :id;');
-        return $query->execute(['id' => $id]);
+        $query = $this->db->prepare("UPDATE `riders` SET `retired` = 1 WHERE `id` = $id;");
+        return $query->execute();
     }
 }

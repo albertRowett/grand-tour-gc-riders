@@ -24,7 +24,7 @@ class AddRiderHtml
 
             <main class='addRiderContainer'>
                 <div class='width330'>
-                    <p class='addRiderError'>{$this->addRiderError()}</p>
+                    <p class='dbError'>{$this->addRiderError()}</p>
                     <h2>Add Rider:</h2>
                     <form class='addRiderForm' method='POST'>
                         <div class='addRiderStats'>
