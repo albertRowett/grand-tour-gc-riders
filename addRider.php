@@ -35,16 +35,22 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
     $nationId = $nationsModel->getIdFromNation($nation);
 
     if ($teamId === false) {
-        $teamsModel->addTeam($team);
-        $teamId = $teamsModel->getIdFromTeam($team);
+        if ($teamsModel->addTeam($team)) {
+            $teamId = $teamsModel->getIdFromTeam($team);
+        } else {
+            header('Location: addRider.php?error=1');
+        }
     }
 
     if ($nationId === false) {
-        $nationsModel->addNation($nation);
-        $nationId = $nationsModel->getIdFromNation($nation);
+        if ($nationsModel->addNation($nation)) {
+            $nationId = $nationsModel->getIdFromNation($nation);
+        } else {
+            header('Location: addRider.php?error=1');
+        }
     }
 
-    $ridersModel->addRider(
+    if ($ridersModel->addRider(
         $name,
         $image,
         $teamId,
@@ -56,9 +62,11 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
         $giroStageWins,
         $tourStageWins,
         $vueltaStageWins
-    );
-
-    header('Location: index.php');
+    )) {
+        header('Location: index.php');
+    } else {
+        header('Location: addRider.php?error=1');
+    };
 }
 
 // Displaying the page

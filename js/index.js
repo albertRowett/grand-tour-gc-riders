@@ -16,6 +16,6 @@ function handleSubmit(submit) {
         dobInput === ''
     ) {
         submit.preventDefault()
-        document.querySelector('.errorMessage').classList.remove('hidden')
+        document.querySelector('.validationError').classList.remove('hidden')
     }
 }

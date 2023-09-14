@@ -2,10 +2,15 @@
 
 namespace Collection\HTML\PageContents;
 
-use Collection\Models\RidersModel;
-
 class AddRiderHtml
 {
+    private function addRiderError() {
+        // return $_GET['error'];
+        if ($_GET['error'] == 1) {
+            return 'An error occurred while adding the rider. Please try again later.';
+        }
+    }
+
     public function display(): void
     {
         echo "
@@ -19,7 +24,8 @@ class AddRiderHtml
             </header>
 
             <main class='addRiderContainer'>
-                <div>
+                <div class='width330'>
+                    <p class='addRiderError'>{$this->addRiderError()}</p>
                     <h2>Add Rider:</h2>
                     <form class='addRiderForm' method='POST'>
                         <div class='addRiderStats'>
@@ -63,7 +69,7 @@ class AddRiderHtml
                             </div>
                         </div>
                         <div class='submitAndError'>
-                            <p class='errorMessage hidden'>Please add all required details (includes DoB)</p>
+                            <p class='validationError hidden'>Please add all required details (includes DoB)</p>
                             <input type='submit' name='submit' value='Submit' />
                         <div>
                     </form>

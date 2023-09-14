@@ -88,6 +88,15 @@ p {
   justify-content: center;
 }
 
+.width330 {
+  width: 330px;
+}
+
+.addRiderError {
+  margin-top: 15px;
+  color: red;
+}
+
 h2 {
   margin: 15px 0;
   font-size: large;
@@ -136,7 +145,7 @@ label {
   width: 45px;
 }
 
-.errorMessage {
+.validationError {
   color: red;
 }
 
