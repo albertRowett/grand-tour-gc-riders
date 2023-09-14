@@ -60,8 +60,8 @@ class IndexHtml
                         <p><b>Tour:</b> {$this->nullToZero($rider->tourStages)}</p>
                         <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaStages)}</p>
                     </div>
-                    <form method='POST'>
-                        <input type='submit' name='$rider->id' value='Retire' />
+                    <form class='riderButtons' method='POST'>
+                        <input type='submit' class='retireButton' name='$rider->id' value='Retire' />
                     </form>
                 </div>
                 ";

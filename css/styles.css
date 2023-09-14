@@ -78,7 +78,17 @@ p {
   margin-bottom: 0;
 }
 
-/* Apply to addRider page only */
+.riderButtons {
+  margin: 15px 0 7.5px 0;
+  display: flex;
+  justify-content: end;
+}
+
+.retireButton {
+  font-size: small;
+}
+
+/* Apply to addRider page only: */
 
 .addRiderContainer {
   position: absolute;
