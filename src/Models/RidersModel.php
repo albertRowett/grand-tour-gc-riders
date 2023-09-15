@@ -150,8 +150,8 @@ class RidersModel
             VALUES (
             :name,
             :image,
-            $teamId,
-            $nationId,
+            :teamId,
+            :nationId,
             :dob,
             :giroGc,
             :tourGc,
@@ -166,6 +166,8 @@ class RidersModel
             [
                 'name' => $name,
                 'image' => $image,
+                'teamId' => $teamId,
+                'nationId' => $nationId,
                 'dob' => $dob,
                 'giroGc' => $giroGc,
                 'tourGc' => $tourGc,
@@ -195,8 +197,8 @@ class RidersModel
             UPDATE `riders` SET
             `name` = :name,
             `image` = :image,
-            `team_id` = $teamId,
-            `nation_id` = $nationId,
+            `team_id` = :teamId,
+            `nation_id` = :nationId,
             `dob` = :dob,
             `giro_gc` = :giroGc,
             `tour_gc` = :tourGc,
@@ -211,6 +213,8 @@ class RidersModel
             [
                 'name' => $name,
                 'image' => $image,
+                'teamId' => $teamId,
+                'nationId' => $nationId,
                 'dob' => $dob,
                 'giroGc' => $giroGc,
                 'tourGc' => $tourGc,
