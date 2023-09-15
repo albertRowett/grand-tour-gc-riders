@@ -15,6 +15,13 @@ class IndexHtml
         return $wins;
     }
 
+    private function retireRiderError()
+    {
+        if ($_GET['error'] === '1') {
+            return 'An error occurred while retiring the rider. Please try again later.';
+        }
+    }
+
     public function display(RidersModel $ridersModel): void
     {
         echo "
@@ -27,9 +34,10 @@ class IndexHtml
                 </nav>
             </header>
             <div class='ridersContainer'>
+                <p class='dbError'>{$this->retireRiderError()}</p>
         ";
 
-        $allRiders = $ridersModel->getAllRiders();
+        $allRiders = $ridersModel->getActiveRiders();
 
         if ($allRiders) {
             $today = new DateTime(date('y-m-d'));
@@ -60,11 +68,14 @@ class IndexHtml
                         <p><b>Tour:</b> {$this->nullToZero($rider->tourStages)}</p>
                         <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaStages)}</p>
                     </div>
+                    <form class='riderButtons' method='POST'>
+                        <input type='submit' class='retireButton' name='$rider->id' value='Retire' />
+                    </form>
                 </div>
                 ";
             }
         } else {
-            echo 'No riders found';
+            echo "<p class='noRidersError'>No riders found</p>";
         }
 
         echo "

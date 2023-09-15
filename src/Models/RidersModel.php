@@ -14,7 +14,7 @@ class RidersModel
         $this->db = $db;
     }
 
-    public function getAllRiders(): array|false
+    public function getActiveRiders(): array|false
     {
         $query = $this->db->prepare('
             SELECT
@@ -29,12 +29,14 @@ class RidersModel
             `riders`.`vuelta_gc`,
             `riders`.`giro_stages`,
             `riders`.`tour_stages`,
-            `riders`.`vuelta_stages`
+            `riders`.`vuelta_stages`,
+            `riders`.`retired`
             FROM `riders`
                 INNER JOIN `teams`
                     ON `riders`.`team_id` = `teams`.`id`
                 INNER JOIN `nations`
                     ON `riders`.`nation_id` = `nations`.`id`
+            WHERE `riders`.`retired` = 0
             ORDER BY `riders`.`id` DESC;
         ');
         $query->execute();
@@ -58,7 +60,8 @@ class RidersModel
                 $datum['vuelta_gc'],
                 $datum['giro_stages'],
                 $datum['tour_stages'],
-                $datum['vuelta_stages']
+                $datum['vuelta_stages'],
+                $datum['retired']
             );
             $allRiders[] = $rider;
         }
@@ -91,7 +94,8 @@ class RidersModel
             `vuelta_gc`,
             `giro_stages`,
             `tour_stages`,
-            `vuelta_stages`
+            `vuelta_stages`,
+            `retired`
             )
             VALUES (
             :name,
@@ -104,7 +108,8 @@ class RidersModel
             :vueltaGcWins,
             :giroStageWins,
             :tourStageWins,
-            :vueltaStageWins
+            :vueltaStageWins,
+            0
             );
         ");
         return $query->execute(
@@ -120,5 +125,11 @@ class RidersModel
                 'vueltaStageWins' => $vueltaStageWins
             ]
         );
+    }
+
+    public function retireRider($id): bool
+    {
+        $query = $this->db->prepare("UPDATE `riders` SET `retired` = 1 WHERE `id` = $id;");
+        return $query->execute();
     }
 }
