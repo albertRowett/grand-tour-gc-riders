@@ -14,14 +14,14 @@ $headHtml = new HeadHtml();
 $retiredHtml = new RetiredHtml();
 
 // Handling form submission (rider edit + unretirement)
-$allRiders = $ridersModel->getActiveRiders();
+$riders = $ridersModel->getRetiredRiders();
 
-foreach ($allRiders as $rider) {
+foreach ($riders as $rider) {
     $buttonClicked = $_POST[$rider->id] ?? false;
 
-    if ($buttonClicked === 'Retire') {
-        if (!$ridersModel->retireRider($rider->id)) {
-            header('Location: index.php?error=1');
+    if ($buttonClicked === 'Unretire') {
+        if (!$ridersModel->unretireRider($rider->id)) {
+            header('Location: retired.php?error=1');
         }
     } elseif ($buttonClicked === 'Edit') {
         header("Location: editRider.php?id=$rider->id");
