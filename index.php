@@ -3,11 +3,13 @@
 use Collection\HTML\HeadHtml;
 use Collection\HTML\PageContents\IndexHtml;
 use Collection\Models\RidersModel;
+use Collection\Models\TeamsModel;
 
 require_once 'database.php';
 require_once 'vendor/autoload.php';
 
 $ridersModel = new RidersModel($db);
+$teamsModel = new TeamsModel($db);
 $headHtml = new HeadHtml();
 $indexHtml = new IndexHtml();
 
@@ -28,4 +30,4 @@ foreach ($allRiders as $rider) {
 
 // Displaying the page
 $headHtml->display();
-$indexHtml->display($ridersModel);
+$indexHtml->display($ridersModel, $teamsModel);

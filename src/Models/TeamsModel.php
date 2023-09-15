@@ -2,6 +2,7 @@
 
 namespace Collection\Models;
 
+use Collection\Entities\Team;
 use PDO;
 
 class TeamsModel
@@ -11,6 +12,27 @@ class TeamsModel
     public function __construct(PDO $db)
     {
         $this->db = $db;
+    }
+
+    public function getAllTeams(): array|false
+    {
+        $query = $this->db->prepare('SELECT `id`, `team` FROM `teams`;');
+        $query->execute();
+        $data = $query->fetchAll();
+
+        if (!$data) {
+            return false;
+        }
+
+        $allTeams = [];
+        foreach ($data as $datum) {
+            $team = new Team(
+                $datum['id'],
+                $datum['team']
+            );
+            $allTeams[] = $team;
+        }
+        return $allTeams;
     }
 
     public function getIdFromTeam(string $team): int|false

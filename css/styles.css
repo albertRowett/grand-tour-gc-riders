@@ -36,9 +36,20 @@ a:hover {
   text-decoration: underline;
 }
 
+.filters {
+  position: fixed;
+  top: 72.55px;
+  z-index: 100;
+  width: 100%;
+  margin: 0;
+  padding: 7.5px 0 2.5px 30px;
+  background-color: white;
+  font-size: smaller;
+}
+
 .ridersContainer {
   position: absolute;
-  top: 72.55px;
+  top: 93.05px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
