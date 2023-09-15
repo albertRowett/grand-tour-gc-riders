@@ -69,6 +69,56 @@ class RidersModel
         return $allRiders;
     }
 
+    public function getRiderById(int $id): Rider|false
+    {
+        $query = $this->db->prepare("
+            SELECT
+            `riders`.`id`,
+            `riders`.`name`,
+            `riders`.`image`,
+            `teams`.`team`,
+            `nations`.`nation`,
+            `riders`.`dob`,
+            `riders`.`giro_gc`,
+            `riders`.`tour_gc`,
+            `riders`.`vuelta_gc`,
+            `riders`.`giro_stages`,
+            `riders`.`tour_stages`,
+            `riders`.`vuelta_stages`,
+            `riders`.`retired`
+            FROM `riders`
+                INNER JOIN `teams`
+                    ON `riders`.`team_id` = `teams`.`id`
+                INNER JOIN `nations`
+                    ON `riders`.`nation_id` = `nations`.`id`
+            WHERE `riders`.`id` = $id;
+        ");
+        $query->execute();
+        $data = $query->fetch();
+
+        if (!$data) {
+            return false;
+        }
+
+        $rider = new Rider(
+            $data['id'],
+            $data['name'],
+            $data['image'],
+            $data['team'],
+            $data['nation'],
+            $data['dob'],
+            $data['giro_gc'],
+            $data['tour_gc'],
+            $data['vuelta_gc'],
+            $data['giro_stages'],
+            $data['tour_stages'],
+            $data['vuelta_stages'],
+            $data['retired']
+        );
+
+        return $rider;
+    }
+
     public function addRider(
         string $name,
         string $image,
@@ -127,7 +177,53 @@ class RidersModel
         );
     }
 
-    public function retireRider($id): bool
+    public function editRider(
+        int $id,
+        string $name,
+        string $image,
+        int $teamId,
+        int $nationId,
+        string $dob,
+        ?int $giroGcWins,
+        ?int $tourGcWins,
+        ?int $vueltaGcWins,
+        ?int $giroStageWins,
+        ?int $tourStageWins,
+        ?int $vueltaStageWins
+    ): bool
+    {
+        $query = $this->db->prepare("
+            UPDATE `riders` SET
+            `name` = :name,
+            `image` = :image,
+            `team_id` = $teamId,
+            `nation_id` = $nationId,
+            `dob` = :dob,
+            `giro_gc` = :giroGcWins,
+            `tour_gc` = :tourGcWins,
+            `vuelta_gc` = :vueltaGcWins,
+            `giro_stages` = :giroStagesWins,
+            `tour_stages` = :tourStagesWins,
+            `vuelta_stages` = :vueltaStagesWins
+            WHERE `id` = $id
+            ;
+        ");
+        return $query->execute(
+            [
+                'name' => $name,
+                'image' => $image,
+                'dob' => $dob,
+                'giroGcWins' => $giroGcWins,
+                'tourGcWins' => $tourGcWins,
+                'vueltaGcWins' => $vueltaGcWins,
+                'giroStageWins' => $giroStageWins,
+                'tourStageWins' => $tourStageWins,
+                'vueltaStageWins' => $vueltaStageWins
+            ]
+        );
+    }
+
+    public function retireRider(int $id): bool
     {
         $query = $this->db->prepare("UPDATE `riders` SET `retired` = 1 WHERE `id` = $id;");
         return $query->execute();
