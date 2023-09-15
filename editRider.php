@@ -50,8 +50,11 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
         }
     }
 
+    $riderId = $_GET['id'] ?? false;
+
     if (
-        $ridersModel->addRider(
+        $ridersModel->editRider(
+            $riderId,
             $name,
             $image,
             $teamId,
