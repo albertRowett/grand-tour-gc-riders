@@ -3,6 +3,7 @@
 namespace Collection\HTML\PageContents;
 
 use Collection\Models\RidersModel;
+use Collection\Models\TeamsModel;
 use DateTime;
 
 class IndexHtml
@@ -22,7 +23,7 @@ class IndexHtml
         }
     }
 
-    public function display(RidersModel $ridersModel): void
+    public function display(RidersModel $ridersModel, TeamsModel $teamsModel): void
     {
         echo "
         <body>
@@ -33,6 +34,23 @@ class IndexHtml
                     <a href='addRider.php'>Add a Rider</a>
                 </nav>
             </header>
+            <form class='filters'>
+                <label for='teams'>Filter by team:</label>
+                <select name='team' id='teams' onchange='this.form.submit()'>
+                <option value='0'>Select team</option>";
+
+        $allTeams = $teamsModel->getAllTeams();
+
+        if ($allTeams) {
+            foreach ($allTeams as $team) {
+                echo "<option value='$team->id'>$team->team</option>";
+            }
+        }
+
+        echo "
+                </select>
+                <noscript><input type='submit' value='Submit'></noscript>
+            </form>
             <div class='ridersContainer'>
                 <p class='dbError'>{$this->retireRiderError()}</p>
         ";
