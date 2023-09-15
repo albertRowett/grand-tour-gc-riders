@@ -58,9 +58,9 @@ class IndexHtml
                     </div>
                     <p class='title'><b>GC wins:</b></p>
                     <div class='flexrow'>
-                        <p><b>Giro: </b> {$this->nullToZero($rider->giroGC)}</p>
-                        <p><b>Tour:</b> {$this->nullToZero($rider->tourGC)}</p>
-                        <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaGC)}</p>
+                        <p><b>Giro: </b> {$this->nullToZero($rider->giroGc)}</p>
+                        <p><b>Tour:</b> {$this->nullToZero($rider->tourGc)}</p>
+                        <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaGc)}</p>
                     </div>
                     <p class='title'><b>Stage wins:</b></p>
                     <div class='flexrow'>
@@ -69,7 +69,8 @@ class IndexHtml
                         <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaStages)}</p>
                     </div>
                     <form class='riderButtons' method='POST'>
-                        <input type='submit' class='retireButton' name='$rider->id' value='Retire' />
+                        <input type='submit' class='riderButton' name='$rider->id' value='Edit' />
+                        <input type='submit' class='riderButton' name='$rider->id' value='Retire' />
                     </form>
                 </div>
                 ";

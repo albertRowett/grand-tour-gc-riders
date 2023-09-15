@@ -1,5 +1,5 @@
 // addRider form front-end validation
-document.querySelector('.addRiderForm').addEventListener('submit', handleSubmit)
+document.querySelector('.riderForm').addEventListener('submit', handleSubmit)
 
 function handleSubmit(submit) {
     const nameInput = document.querySelector('#name').value

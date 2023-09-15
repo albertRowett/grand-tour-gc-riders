@@ -82,10 +82,10 @@ p {
 .riderButtons {
   margin: 15px 0 7.5px 0;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
 }
 
-.retireButton {
+.riderButton {
   font-size: small;
 }
 
@@ -100,7 +100,7 @@ margin: 15px auto;
 
 /* Apply to addRider page only: */
 
-.addRiderContainer {
+.riderFormContainer {
   position: absolute;
   top: 72.55px;
   width: 100%;
@@ -117,7 +117,7 @@ h2 {
   font-size: large;
 }
 
-.addRiderStats {
+.riderStats {
   width: 330px;
   margin: 15px 0 7.5px 0;
   border: 1px solid black;

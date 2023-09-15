@@ -10,9 +10,9 @@ readonly class Rider
     public string $team;
     public string $nation;
     public string $dob;
-    public ?int $giroGC;
-    public ?int $tourGC;
-    public ?int $vueltaGC;
+    public ?int $giroGc;
+    public ?int $tourGc;
+    public ?int $vueltaGc;
     public ?int $giroStages;
     public ?int $tourStages;
     public ?int $vueltaStages;
@@ -25,9 +25,9 @@ readonly class Rider
         string $team,
         string $nation,
         string $dob,
-        ?int $giroGC,
-        ?int $tourGC,
-        ?int $vueltaGC,
+        ?int $giroGc,
+        ?int $tourGc,
+        ?int $vueltaGc,
         ?int $giroStages,
         ?int $tourStages,
         ?int $vueltaStages,
@@ -39,9 +39,9 @@ readonly class Rider
         $this->team = $team;
         $this->nation = $nation;
         $this->dob = $dob;
-        $this->giroGC = $giroGC;
-        $this->tourGC = $tourGC;
-        $this->vueltaGC = $vueltaGC;
+        $this->giroGc = $giroGc;
+        $this->tourGc = $tourGc;
+        $this->vueltaGc = $vueltaGc;
         $this->giroStages = $giroStages;
         $this->tourStages = $tourStages;
         $this->vueltaStages = $vueltaStages;

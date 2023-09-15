@@ -1,7 +1,7 @@
 <?php
 
 use Collection\HTML\HeadHtml;
-use Collection\HTML\PageContents\AddRiderHtml;
+use Collection\HTML\PageContents\EditRiderHtml;
 use Collection\Models\NationsModel;
 use Collection\Models\RidersModel;
 use Collection\Models\TeamsModel;
@@ -15,7 +15,7 @@ $ridersModel = new RidersModel($db);
 $teamsModel = new TeamsModel($db);
 $nationsModel = new NationsModel($db);
 $headHtml = new HeadHtml();
-$addRiderHtml = new AddRiderHtml();
+$editRiderHtml = new EditRiderHtml();
 
 // Handling form submission
 $name = $_POST['name'] ?? false;
@@ -38,7 +38,7 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
         if ($teamsModel->addTeam($team)) {
             $teamId = $teamsModel->getIdFromTeam($team);
         } else {
-            header('Location: addRider.php?error=1');
+            header('Location: editRider.php?error=1');
         }
     }
 
@@ -46,12 +46,15 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
         if ($nationsModel->addNation($nation)) {
             $nationId = $nationsModel->getIdFromNation($nation);
         } else {
-            header('Location: addRider.php?error=1');
+            header('Location: editRider.php?error=1');
         }
     }
 
+    $riderId = $_GET['id'] ?? false;
+
     if (
-        $ridersModel->addRider(
+        $ridersModel->editRider(
+            $riderId,
             $name,
             $image,
             $teamId,
@@ -67,10 +70,10 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
     ) {
         header('Location: index.php');
     } else {
-        header('Location: addRider.php?error=1');
+        header('Location: editRider.php?error=1');
     };
 }
 
 // Displaying the page
 $headHtml->display();
-$addRiderHtml->display();
+$editRiderHtml->display($ridersModel);
