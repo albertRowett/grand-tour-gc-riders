@@ -30,4 +30,4 @@ foreach ($allRiders as $rider) {
 
 // Displaying the page
 $headHtml->display();
-$retireHtml->display($ridersModel, $teamsModel);
+$retiredHtml->display($ridersModel, $teamsModel);

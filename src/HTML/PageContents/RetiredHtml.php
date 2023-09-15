@@ -16,10 +16,10 @@ class RetiredHtml
         return $wins;
     }
 
-    private function retireRiderError()
+    private function unretireRiderError()
     {
         if ($_GET['error'] === '1') {
-            return 'An error occurred while retiring the rider. Please try again later.';
+            return 'An error occurred while unretiring the rider. Please try again later.';
         }
     }
 
@@ -34,34 +34,11 @@ class RetiredHtml
                     <a href='addRider.php'>Add a Rider</a>
                 </nav>
             </header>
-            <form class='filters'>
-                <label for='teams'>Filter by team:</label>
-                <select name='team' id='teams' onchange='this.form.submit()'>
-                <option value='0'>Select team</option>";
-
-        $allTeams = $teamsModel->getAllTeams();
-
-        if ($allTeams) {
-            foreach ($allTeams as $team) {
-                echo "<option value='$team->id'>$team->team</option>";
-            }
-        }
-
-        echo "
-                </select>
-                <noscript><input type='submit' value='Submit'></noscript>
-            </form>
             <div class='ridersContainer'>
-                <p class='dbError'>{$this->retireRiderError()}</p>
+                <p class='dbError'>{$this->unretireRiderError()}</p>
         ";
 
-        $teamId = $_GET['team'] ?? false;
-
-        if ($teamId) {
-            $riders = $ridersModel->getActiveRidersByTeamId($teamId);
-        } else {
-            $riders = $ridersModel->getActiveRiders();
-        }
+        $riders = $ridersModel->getRetiredRiders();
 
         if ($riders) {
             $today = new DateTime(date('y-m-d'));
@@ -75,7 +52,7 @@ class RetiredHtml
                 <div class='riderContainer'>
                     <h3>$rider->name</h3>
                     <img src='$rider->image' alt='$rider->name in $rider->team jersey' />
-                    <p><b>Team:</b> $rider->team</p>
+                    <p><b>Last team:</b> $rider->team</p>
                     <div class='flexrow'>
                         <p><b>Nation:</b> $rider->nation</p>
                         <p><b>Age:</b> $age</p>
@@ -94,7 +71,7 @@ class RetiredHtml
                     </div>
                     <form class='riderButtons' method='POST'>
                         <input type='submit' class='riderButton' name='$rider->id' value='Edit' />
-                        <input type='submit' class='riderButton' name='$rider->id' value='Retire' />
+                        <input type='submit' class='riderButton' name='$rider->id' value='Unretire' />
                     </form>
                 </div>
                 ";
