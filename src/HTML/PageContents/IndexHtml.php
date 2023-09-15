@@ -55,12 +55,18 @@ class IndexHtml
                 <p class='dbError'>{$this->retireRiderError()}</p>
         ";
 
-        $allRiders = $ridersModel->getActiveRiders();
+        $teamId = $_GET['team'] ?? false;
 
-        if ($allRiders) {
+        if ($teamId) {
+            $riders = $ridersModel->getActiveRidersByTeamId($teamId);
+        } else {
+            $riders = $ridersModel->getActiveRiders();
+        }
+
+        if ($riders) {
             $today = new DateTime(date('y-m-d'));
 
-            foreach ($allRiders as $rider) {
+            foreach ($riders as $rider) {
                 $dob = new DateTime($rider->dob);
                 $diff = $today->diff($dob);
                 $age = $diff->y;
