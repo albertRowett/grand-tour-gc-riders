@@ -15,6 +15,13 @@ class IndexHtml
         return $wins;
     }
 
+    private function retireRiderError()
+    {
+        if ($_GET['error'] === '1') {
+            return 'An error occurred while retiring the rider. Please try again later.';
+        }
+    }
+
     public function display(RidersModel $ridersModel): void
     {
         echo "
@@ -27,6 +34,7 @@ class IndexHtml
                 </nav>
             </header>
             <div class='ridersContainer'>
+                <p class='dbError'>{$this->retireRiderError()}</p>
         ";
 
         $allRiders = $ridersModel->getActiveRiders();

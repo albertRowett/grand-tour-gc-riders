@@ -4,7 +4,8 @@ namespace Collection\HTML\PageContents;
 
 class AddRiderHtml
 {
-    private function addRiderError() {
+    private function addRiderError()
+    {
         if ($_GET['error'] === '1') {
             return 'An error occurred while adding the rider. Please try again later.';
         }
@@ -24,7 +25,7 @@ class AddRiderHtml
 
             <main class='addRiderContainer'>
                 <div class='width330'>
-                    <p class='addRiderError'>{$this->addRiderError()}</p>
+                    <p class='dbError'>{$this->addRiderError()}</p>
                     <h2>Add Rider:</h2>
                     <form class='addRiderForm' method='POST'>
                         <div class='addRiderStats'>
