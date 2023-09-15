@@ -30,8 +30,9 @@ class RetiredHtml
             <header>
                 <h1>Grand Tour GC Riders</h1>
                 <nav>
-                    <a href='index.php'>View Riders</a>
-                    <a href='addRider.php'>Add a Rider</a>
+                <a href='index.php'>Active</a>
+                <a href='retired.php'>Retired</a>
+                <a href='addRider.php'>Add a Rider</a>
                 </nav>
             </header>
             <div class='ridersContainer retiredRidersContainer'>
