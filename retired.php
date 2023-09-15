@@ -1,7 +1,7 @@
 <?php
 
 use Collection\HTML\HeadHtml;
-use Collection\HTML\PageContents\IndexHtml;
+use Collection\HTML\PageContents\RetiredHtml;
 use Collection\Models\RidersModel;
 use Collection\Models\TeamsModel;
 
@@ -11,9 +11,9 @@ require_once 'vendor/autoload.php';
 $ridersModel = new RidersModel($db);
 $teamsModel = new TeamsModel($db);
 $headHtml = new HeadHtml();
-$indexHtml = new IndexHtml();
+$retiredHtml = new RetiredHtml();
 
-// Handling form submission (rider edit + retirement)
+// Handling form submission (rider edit + unretirement)
 $allRiders = $ridersModel->getActiveRiders();
 
 foreach ($allRiders as $rider) {
@@ -30,4 +30,4 @@ foreach ($allRiders as $rider) {
 
 // Displaying the page
 $headHtml->display();
-$indexHtml->display($ridersModel, $teamsModel);
+$retireHtml->display($ridersModel, $teamsModel);
