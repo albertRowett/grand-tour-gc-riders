@@ -109,7 +109,7 @@ margin: 15px auto;
   color: red;
 }
 
-/* Apply to addRider page only: */
+/* Apply to addRider/editRider page only: */
 
 .riderFormContainer {
   position: absolute;
@@ -181,4 +181,10 @@ label {
 
 .submitAndError {
   text-align: center;
+}
+
+/* Apply to retired page only: */
+
+.retiredRidersContainer {
+  top: 72.55px;
 }

@@ -34,7 +34,7 @@ class RetiredHtml
                     <a href='addRider.php'>Add a Rider</a>
                 </nav>
             </header>
-            <div class='ridersContainer'>
+            <div class='ridersContainer retiredRidersContainer'>
                 <p class='dbError'>{$this->unretireRiderError()}</p>
         ";
 
