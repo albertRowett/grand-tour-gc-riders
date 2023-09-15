@@ -27,12 +27,12 @@ class EditRiderHtml
                 </nav>
             </header>
 
-            <main class='addRiderContainer'>
+            <main class='riderFormContainer'>
                 <div class='width330'>
                     <p class='dbError'>{$this->editRiderError()}</p>
                     <h2>Edit Rider:</h2>
-                    <form class='addRiderForm' method='POST'>
-                        <div class='addRiderStats'>
+                    <form class='riderForm' method='POST'>
+                        <div class='riderStats'>
                             <div class='statRow nameRow'>
                                 <label for='name'>Name:</label>
                                 <input type='text' class='textInput' id='name' name='name' value='$rider->name' placeholder='Required' />
