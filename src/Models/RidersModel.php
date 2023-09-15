@@ -190,8 +190,7 @@ class RidersModel
         ?int $giroStages,
         ?int $tourStages,
         ?int $vueltaStages
-    ): bool
-    {
+    ): bool {
         $query = $this->db->prepare("
             UPDATE `riders` SET
             `name` = :name,

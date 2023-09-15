@@ -6,7 +6,8 @@ use Collection\Models\RidersModel;
 
 class EditRiderHtml
 {
-    private function editRiderError() {
+    private function editRiderError()
+    {
         if ($_GET['error'] === '1') {
             return 'An error occurred while editing the rider. Please try again later.';
         }
