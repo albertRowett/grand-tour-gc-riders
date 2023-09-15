@@ -90,10 +90,10 @@ class RidersModel
                     ON `riders`.`team_id` = `teams`.`id`
                 INNER JOIN `nations`
                     ON `riders`.`nation_id` = `nations`.`id`
-            WHERE `riders`.`retired` = 0 AND `teams`.`id` = $teamId
+            WHERE `riders`.`retired` = 0 AND `teams`.`id` = :teamId
             ORDER BY `riders`.`id` DESC;
         ");
-        $query->execute();
+        $query->execute(['teamId' => $teamId]);
         $data = $query->fetchAll();
 
         if (!$data) {
