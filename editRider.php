@@ -73,4 +73,4 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
 
 // Displaying the page
 $headHtml->display();
-$editRiderHtml->display();
+$editRiderHtml->display($ridersModel);
