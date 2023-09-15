@@ -125,12 +125,12 @@ class RidersModel
         int $teamId,
         int $nationId,
         string $dob,
-        ?int $giroGcWins,
-        ?int $tourGcWins,
-        ?int $vueltaGcWins,
-        ?int $giroStageWins,
-        ?int $tourStageWins,
-        ?int $vueltaStageWins
+        ?int $giroGc,
+        ?int $tourGc,
+        ?int $vueltaGc,
+        ?int $giroStages,
+        ?int $tourStages,
+        ?int $vueltaStages
     ): bool {
         $query = $this->db->prepare("
             INSERT INTO `riders` (
@@ -153,12 +153,12 @@ class RidersModel
             $teamId,
             $nationId,
             :dob,
-            :giroGcWins,
-            :tourGcWins,
-            :vueltaGcWins,
-            :giroStageWins,
-            :tourStageWins,
-            :vueltaStageWins,
+            :giroGc,
+            :tourGc,
+            :vueltaGc,
+            :giroStages,
+            :tourStages,
+            :vueltaStages,
             0
             );
         ");
@@ -167,12 +167,12 @@ class RidersModel
                 'name' => $name,
                 'image' => $image,
                 'dob' => $dob,
-                'giroGcWins' => $giroGcWins,
-                'tourGcWins' => $tourGcWins,
-                'vueltaGcWins' => $vueltaGcWins,
-                'giroStageWins' => $giroStageWins,
-                'tourStageWins' => $tourStageWins,
-                'vueltaStageWins' => $vueltaStageWins
+                'giroGc' => $giroGc,
+                'tourGc' => $tourGc,
+                'vueltaGc' => $vueltaGc,
+                'giroStages' => $giroStages,
+                'tourStages' => $tourStages,
+                'vueltaStages' => $vueltaStages
             ]
         );
     }
@@ -184,12 +184,12 @@ class RidersModel
         int $teamId,
         int $nationId,
         string $dob,
-        ?int $giroGcWins,
-        ?int $tourGcWins,
-        ?int $vueltaGcWins,
-        ?int $giroStageWins,
-        ?int $tourStageWins,
-        ?int $vueltaStageWins
+        ?int $giroGc,
+        ?int $tourGc,
+        ?int $vueltaGc,
+        ?int $giroStages,
+        ?int $tourStages,
+        ?int $vueltaStages
     ): bool
     {
         $query = $this->db->prepare("
@@ -199,12 +199,12 @@ class RidersModel
             `team_id` = $teamId,
             `nation_id` = $nationId,
             `dob` = :dob,
-            `giro_gc` = :giroGcWins,
-            `tour_gc` = :tourGcWins,
-            `vuelta_gc` = :vueltaGcWins,
-            `giro_stages` = :giroStagesWins,
-            `tour_stages` = :tourStagesWins,
-            `vuelta_stages` = :vueltaStagesWins
+            `giro_gc` = :giroGc,
+            `tour_gc` = :tourGc,
+            `vuelta_gc` = :vueltaGc,
+            `giro_stages` = :giroStages,
+            `tour_stages` = :tourStages,
+            `vuelta_stages` = :vueltaStages
             WHERE `id` = $id
             ;
         ");
@@ -213,12 +213,12 @@ class RidersModel
                 'name' => $name,
                 'image' => $image,
                 'dob' => $dob,
-                'giroGcWins' => $giroGcWins,
-                'tourGcWins' => $tourGcWins,
-                'vueltaGcWins' => $vueltaGcWins,
-                'giroStageWins' => $giroStageWins,
-                'tourStageWins' => $tourStageWins,
-                'vueltaStageWins' => $vueltaStageWins
+                'giroGc' => $giroGc,
+                'tourGc' => $tourGc,
+                'vueltaGc' => $vueltaGc,
+                'giroStages' => $giroStages,
+                'tourStages' => $tourStages,
+                'vueltaStages' => $vueltaStages
             ]
         );
     }

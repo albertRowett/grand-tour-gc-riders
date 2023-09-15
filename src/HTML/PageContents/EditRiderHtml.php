@@ -55,21 +55,21 @@ class EditRiderHtml
                             </div>
                             <p class='title'><b>GC wins:</b></p>
                             <div class='flexrow statRow'>
-                                <label for='giroGcWins'>Giro:</label>
-                                <input type='number' class='numberInput' id='giroGcWins' name='giroGcWins' value='$rider->giroGC' min='0' />
-                                <label for='tourGcWins'>Tour:</label>
-                                <input type='number' class='numberInput' id='tourGcWins' name='tourGcWins' value='$rider->tourGC' min='0' />
-                                <label for='vueltaGcWins'>Vuelta:</label>
-                                <input type='number' class='numberInput' id='vueltaGcWins' name='vueltaGcWins' value='$rider->vueltaGC' min='0' />
+                                <label for='giroGc'>Giro:</label>
+                                <input type='number' class='numberInput' id='giroGc' name='giroGc' value='$rider->giroGc' min='0' />
+                                <label for='tourGc'>Tour:</label>
+                                <input type='number' class='numberInput' id='tourGc' name='tourGc' value='$rider->tourGc' min='0' />
+                                <label for='vueltaGc'>Vuelta:</label>
+                                <input type='number' class='numberInput' id='vueltaGc' name='vueltaGc' value='$rider->vueltaGc' min='0' />
                             </div>
                             <p class='title'><b>Stage wins:</b></p>
                             <div class='flexrow statRow'>
-                                <label for='giroStageWins'>Giro:</label>
-                                <input type='number' class='numberInput' id='giroStageWins' name='giroStageWins' value='$rider->giroStages' min='0' />
-                                <label for='tourStageWins'>Tour:</label>
-                                <input type='number' class='numberInput' id='tourStageWins' name='tourStageWins' value='$rider->tourStages' min='0' />
-                                <label for='vueltaStageWins'>Vuelta:</label>
-                                <input type='number' class='numberInput' id='vueltaStageWins' name='vueltaStageWins' value='$rider->vueltaStages' min='0' />
+                                <label for='giroStages'>Giro:</label>
+                                <input type='number' class='numberInput' id='giroStages' name='giroStages' value='$rider->giroStages' min='0' />
+                                <label for='tourStages'>Tour:</label>
+                                <input type='number' class='numberInput' id='tourStages' name='tourStages' value='$rider->tourStages' min='0' />
+                                <label for='vueltaStages'>Vuelta:</label>
+                                <input type='number' class='numberInput' id='vueltaStages' name='vueltaStages' value='$rider->vueltaStages' min='0' />
                             </div>
                         </div>
                         <div class='submitAndError'>

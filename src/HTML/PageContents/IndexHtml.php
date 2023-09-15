@@ -58,9 +58,9 @@ class IndexHtml
                     </div>
                     <p class='title'><b>GC wins:</b></p>
                     <div class='flexrow'>
-                        <p><b>Giro: </b> {$this->nullToZero($rider->giroGC)}</p>
-                        <p><b>Tour:</b> {$this->nullToZero($rider->tourGC)}</p>
-                        <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaGC)}</p>
+                        <p><b>Giro: </b> {$this->nullToZero($rider->giroGc)}</p>
+                        <p><b>Tour:</b> {$this->nullToZero($rider->tourGc)}</p>
+                        <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaGc)}</p>
                     </div>
                     <p class='title'><b>Stage wins:</b></p>
                     <div class='flexrow'>

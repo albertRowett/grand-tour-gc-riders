@@ -23,12 +23,12 @@ $image = $_POST['image'] ?? false;
 $team = $_POST['team'] ?? false;
 $nation = $_POST['nation'] ?? false;
 $dob = $_POST['dob'] ?? false;
-$giroGcWins = $_POST['giroGcWins'] ?? false;
-$tourGcWins = $_POST['tourGcWins'] ?? false;
-$vueltaGcWins = $_POST['vueltaGcWins'] ?? false;
-$giroStageWins = $_POST['giroStageWins'] ?? false;
-$tourStageWins = $_POST['tourStageWins'] ?? false;
-$vueltaStageWins = $_POST['vueltaStageWins'] ?? false;
+$giroGc = $_POST['giroGc'] ?? false;
+$tourGc = $_POST['tourGc'] ?? false;
+$vueltaGc = $_POST['vueltaGc'] ?? false;
+$giroStages = $_POST['giroStages'] ?? false;
+$tourStages = $_POST['tourStages'] ?? false;
+$vueltaStages = $_POST['vueltaStages'] ?? false;
 
 if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob)) {
     $teamId = $teamsModel->getIdFromTeam($team);
@@ -57,12 +57,12 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
             $teamId,
             $nationId,
             $dob,
-            $giroGcWins,
-            $tourGcWins,
-            $vueltaGcWins,
-            $giroStageWins,
-            $tourStageWins,
-            $vueltaStageWins
+            $giroGc,
+            $tourGc,
+            $vueltaGc,
+            $giroStages,
+            $tourStages,
+            $vueltaStages
         )
     ) {
         header('Location: index.php');
