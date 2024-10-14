@@ -1,6 +1,7 @@
 <?php
 
 use Collection\HTML\HeadHtml;
+use Collection\HTML\PageContents\HeaderHtml;
 use Collection\HTML\PageContents\RetiredHtml;
 use Collection\Models\RidersModel;
 
@@ -9,6 +10,7 @@ require_once './vendor/autoload.php';
 
 $ridersModel = new RidersModel($db);
 $headHtml = new HeadHtml();
+$headerHtml = new HeaderHtml();
 $retiredHtml = new RetiredHtml();
 
 $riders = $ridersModel->getRetiredRiders();
@@ -30,4 +32,5 @@ if ($riders) {
 
 // Displaying the page
 $headHtml->display();
+$headerHtml->display();
 $retiredHtml->display($riders);

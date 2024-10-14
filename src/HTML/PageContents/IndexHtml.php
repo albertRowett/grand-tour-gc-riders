@@ -26,15 +26,6 @@ class IndexHtml
     public function display(RidersModel $ridersModel, TeamsModel $teamsModel): void
     {
         echo "
-        <body>
-            <header>
-                <h1>Grand Tour GC Riders</h1>
-                <nav>
-                    <a href='index.php'>View Riders</a>
-                    <a href='addRider.php'>Add a Rider</a>
-                    <a href='retired.php'>Retired Riders</a>
-                </nav>
-            </header>
             <form class='filters'>
                 <label for='teams'>Filter by team:</label>
                 <select name='team' id='teams' onchange='this.form.submit()'>

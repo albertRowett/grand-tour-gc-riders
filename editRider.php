@@ -2,6 +2,7 @@
 
 use Collection\HTML\HeadHtml;
 use Collection\HTML\PageContents\EditRiderHtml;
+use Collection\HTML\PageContents\HeaderHtml;
 use Collection\Models\NationsModel;
 use Collection\Models\RidersModel;
 use Collection\Models\TeamsModel;
@@ -15,6 +16,7 @@ $ridersModel = new RidersModel($db);
 $teamsModel = new TeamsModel($db);
 $nationsModel = new NationsModel($db);
 $headHtml = new HeadHtml();
+$headerHtml = new HeaderHtml();
 $editRiderHtml = new EditRiderHtml();
 
 // Handling form submission
@@ -76,4 +78,5 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
 
 // Displaying the page
 $headHtml->display();
+$headerHtml->display();
 $editRiderHtml->display($ridersModel);
