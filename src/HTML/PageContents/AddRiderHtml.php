@@ -20,6 +20,7 @@ class AddRiderHtml
                 <nav>
                     <a href='index.php'>View Riders</a>
                     <a href='addRider.php'>Add a Rider</a>
+                    <a href='retired.php'>Retired Riders</a>
                 </nav>
             </header>
 
