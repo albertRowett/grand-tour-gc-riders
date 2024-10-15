@@ -16,7 +16,7 @@ class TeamsModel
 
     public function getAllTeams(): array|false
     {
-        $query = $this->db->prepare('SELECT `id`, `team` FROM `teams`;');
+        $query = $this->db->prepare('SELECT `id`, `team` FROM `teams` ORDER BY `team` ASC;');
         $query->execute();
         $data = $query->fetchAll();
 
@@ -24,15 +24,15 @@ class TeamsModel
             return false;
         }
 
-        $allTeams = [];
+        $teams = [];
         foreach ($data as $datum) {
             $team = new Team(
                 $datum['id'],
                 $datum['team']
             );
-            $allTeams[] = $team;
+            $teams[] = $team;
         }
-        return $allTeams;
+        return $teams;
     }
 
     public function getIdFromTeam(string $team): int|false
