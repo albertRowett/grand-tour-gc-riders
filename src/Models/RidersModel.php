@@ -82,7 +82,7 @@ class RidersModel
 
     public function getRiderById(int $id): Rider|false
     {
-        $query = $this->db->prepare("
+        $query = $this->db->prepare('
             SELECT
             `riders`.`id`,
             `riders`.`name`,
@@ -102,9 +102,9 @@ class RidersModel
                     ON `riders`.`team_id` = `teams`.`id`
                 INNER JOIN `nations`
                     ON `riders`.`nation_id` = `nations`.`id`
-            WHERE `riders`.`id` = $id;
-        ");
-        $query->execute();
+            WHERE `riders`.`id` = :id;
+        ');
+        $query->execute(['id' => $id]);
         $data = $query->fetch();
 
         if (!$data) {
@@ -126,7 +126,6 @@ class RidersModel
             $data['vuelta_stages'],
             $data['retired']
         );
-
         return $rider;
     }
 
@@ -143,7 +142,7 @@ class RidersModel
         ?int $tourStages,
         ?int $vueltaStages
     ): bool {
-        $query = $this->db->prepare("
+        $query = $this->db->prepare('
             INSERT INTO `riders` (
             `name`,
             `image`,
@@ -172,7 +171,7 @@ class RidersModel
             :vueltaStages,
             0
             );
-        ");
+        ');
         return $query->execute(
             [
                 'name' => $name,
@@ -204,7 +203,7 @@ class RidersModel
         ?int $tourStages,
         ?int $vueltaStages
     ): bool {
-        $query = $this->db->prepare("
+        $query = $this->db->prepare('
             UPDATE `riders` SET
             `name` = :name,
             `image` = :image,
@@ -217,9 +216,8 @@ class RidersModel
             `giro_stages` = :giroStages,
             `tour_stages` = :tourStages,
             `vuelta_stages` = :vueltaStages
-            WHERE `id` = $id
-            ;
-        ");
+            WHERE `id` = :id;
+        ');
         return $query->execute(
             [
                 'name' => $name,
@@ -232,7 +230,8 @@ class RidersModel
                 'vueltaGc' => $vueltaGc,
                 'giroStages' => $giroStages,
                 'tourStages' => $tourStages,
-                'vueltaStages' => $vueltaStages
+                'vueltaStages' => $vueltaStages,
+                'id' => $id
             ]
         );
     }
