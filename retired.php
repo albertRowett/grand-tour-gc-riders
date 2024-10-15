@@ -13,7 +13,7 @@ $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $retiredHtml = new RetiredHtml();
 
-$riders = $ridersModel->getRetiredRiders();
+$riders = $ridersModel->getRiders(1, null);
 
 // Handling form submission (edit/unretire rider)
 if ($riders) {

@@ -16,7 +16,7 @@ $headerHtml = new HeaderHtml();
 $indexHtml = new IndexHtml();
 
 // Handling form submission (rider retirement)
-$allRiders = $ridersModel->getActiveRiders();
+$allRiders = $ridersModel->getRiders(0, null);
 
 foreach ($allRiders as $rider) {
     $buttonClicked = $_POST[$rider->id] ?? false;

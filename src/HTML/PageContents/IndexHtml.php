@@ -47,13 +47,8 @@ class IndexHtml
                 <p class='dbError'>{$this->retireRiderError()}</p>
         ";
 
-        $teamId = $_GET['team'] ?? false;
-
-        if ($teamId) {
-            $riders = $ridersModel->getActiveRidersByTeamId($teamId);
-        } else {
-            $riders = $ridersModel->getActiveRiders();
-        }
+        $teamId = $_GET['team'] ?? null;
+        $riders = $ridersModel->getRiders(0, $teamId);
 
         if ($riders) {
             $today = new DateTime(date('y-m-d'));
