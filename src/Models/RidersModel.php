@@ -236,15 +236,9 @@ class RidersModel
         );
     }
 
-    public function retireRider(int $id): bool
+    public function toggleRiderRetirement(int $id, int $retired): bool
     {
-        $query = $this->db->prepare("UPDATE `riders` SET `retired` = 1 WHERE `id` = $id;");
-        return $query->execute();
-    }
-
-    public function unretireRider(int $id): bool
-    {
-        $query = $this->db->prepare("UPDATE `riders` SET `retired` = 0 WHERE `id` = $id;");
+        $query = $this->db->prepare("UPDATE `riders` SET `retired` = $retired WHERE `id` = $id;");
         return $query->execute();
     }
 }

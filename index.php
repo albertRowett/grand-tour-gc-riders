@@ -22,7 +22,7 @@ foreach ($allRiders as $rider) {
     $buttonClicked = $_POST[$rider->id] ?? false;
 
     if ($buttonClicked === 'Retire') {
-        if (!$ridersModel->retireRider($rider->id)) {
+        if (!$ridersModel->toggleRiderRetirement($rider->id, 1)) {
             header('Location: index.php?error=1');
         }
     } elseif ($buttonClicked === 'Edit') {
