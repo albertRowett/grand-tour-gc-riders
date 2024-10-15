@@ -17,6 +17,7 @@ class EditRiderHtml
     {
         $riderId = $_GET['id'] ?? false;
         $rider = $ridersModel->getRiderById($riderId);
+        $teamWording = $rider->retired ? 'Last team' : ' Team';
 
         echo "
             <main class='riderFormContainer'>
@@ -34,7 +35,7 @@ class EditRiderHtml
                                 <textarea id='image' name='image' class='imgInput' placeholder='Required'>$rider->image</textarea>
                             </div>
                             <div class='statRow'>
-                                <label for='team'>Team:</label>
+                                <label for='team'>$teamWording:</label>
                                 <input type='text' class='textInput' id='team' name='team' value='$rider->team' placeholder='Required' />
                             </div>
                             <div class='statRow'>

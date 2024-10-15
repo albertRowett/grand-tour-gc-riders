@@ -19,11 +19,9 @@ $riders = $ridersModel->getRetiredRiders();
 if ($riders) {
     foreach ($riders as $rider) {
         $buttonClicked = $_POST[$rider->id] ?? false;
-    
+
         if ($buttonClicked === 'Unretire') {
-            if (!$ridersModel->unretireRider($rider->id)) {
-                header('Location: retired.php?error=1');
-            }
+            $ridersModel->unretireRider($rider->id) ? header('Location: retired.php') : header('Location: retired.php?error=1');
         } elseif ($buttonClicked === 'Edit') {
             header("Location: editRider.php?id=$rider->id");
         }

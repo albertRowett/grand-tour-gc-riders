@@ -53,6 +53,7 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
     }
 
     $riderId = $_GET['id'] ?? false;
+    $rider = $ridersModel->getRiderById($riderId);
 
     if (
         $ridersModel->editRider(
@@ -70,7 +71,7 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
             $vueltaStages
         )
     ) {
-        header('Location: index.php');
+        $rider->retired ? header('Location: retired.php') : header('Location: index.php');
     } else {
         header('Location: editRider.php?error=1');
     };
