@@ -66,7 +66,7 @@ class EditRiderHtml
                             </div>
                         </div>
                         <div class='submitAndError'>
-                            <p class='validationError hidden'>Please add all required details (includes DoB)</p>
+                            <p class='validationError hidden'>Please enter valid details for all fields</p>
                             <input type='submit' name='submit' value='Submit' />
                         <div>
                     </form>
