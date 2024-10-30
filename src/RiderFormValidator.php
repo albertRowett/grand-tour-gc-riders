@@ -2,6 +2,8 @@
 
 namespace Collection;
 
+use DateTime;
+
 class RiderFormValidator
 {
     public function validateRiderForm(
@@ -9,47 +11,32 @@ class RiderFormValidator
         string $image,
         string $team,
         string $nation,
-        string $dob
+        string $dob,
+        string $giroGc,
+        string $tourGc,
+        string $vueltaGc,
+        string $giroStages,
+        string $tourStages,
+        string $vueltaStages
     ): bool {
-        if (strlen($name) > 0) {
-            $nameValidation = true;
-        } else {
-            $nameValidation = false;
+        foreach ([$name, $image, $team, $nation] as $field) {
+            $trimmedField = trim($field);
+            if ($trimmedField === '' || strlen($trimmedField) > 999) return false; // varchar with max length 999 in DB
         }
 
-        if (strlen($image) > 0) {
-            $imageValidation = true;
-        } else {
-            $imageValidation = false;
+        if (!$this->isValidDate($dob)) return false;
+
+        foreach ([$giroGc, $tourGc, $vueltaGc, $giroStages, $tourStages, $vueltaStages] as $field) {
+            $fieldInt = intval($field);
+            if ($fieldInt != $field || $fieldInt < 0 || $fieldInt > 255) return false; // tinyint in DB, so cannot exceed 255
         }
 
-        if (strlen($team) > 0) {
-            $teamValidation = true;
-        } else {
-            $teamValidation = false;
-        }
+        return true;
+    }
 
-        if (strlen($nation) > 0) {
-            $nationValidation = true;
-        } else {
-            $nationValidation = false;
-        }
-
-        if (strlen($dob) === 10) {
-            $dobValidation = true;
-        } else {
-            $dobValidation = false;
-        }
-
-        if (
-            $nameValidation &&
-            $imageValidation &&
-            $teamValidation &&
-            $nationValidation &&
-            $dobValidation
-        ) {
-            return true;
-        }
-        return false;
+    private function isValidDate(string $dob): bool
+    {
+        $date = DateTime::createFromFormat('Y-m-d', $dob);
+        return $date && $date->format('Y-m-d') === $dob;
     }
 }
