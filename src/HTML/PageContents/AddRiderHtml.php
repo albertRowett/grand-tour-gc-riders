@@ -43,20 +43,20 @@ class AddRiderHtml
                             <p class='title'><b>GC wins:</b></p>
                             <div class='flexrow statRow'>
                                 <label for='giroGc'>Giro:</label>
-                                <input type='number' class='numberInput' id='giroGc' name='giroGc' value='0' min='0' />
+                                <input type='number' class='numberInput' id='giroGc' name='giroGc' value='0' min='0' max='255' />
                                 <label for='tourGc'>Tour:</label>
-                                <input type='number' class='numberInput' id='tourGc' name='tourGc' value='0' min='0' />
+                                <input type='number' class='numberInput' id='tourGc' name='tourGc' value='0' min='0' max='255' />
                                 <label for='vueltaGc'>Vuelta:</label>
-                                <input type='number' class='numberInput' id='vueltaGc' name='vueltaGc' value='0' min='0' />
+                                <input type='number' class='numberInput' id='vueltaGc' name='vueltaGc' value='0' min='0' max='255' />
                             </div>
                             <p class='title'><b>Stage wins:</b></p>
                             <div class='flexrow statRow'>
                                 <label for='giroStages'>Giro:</label>
-                                <input type='number' class='numberInput' id='giroStages' name='giroStages' value='0' min='0' />
+                                <input type='number' class='numberInput' id='giroStages' name='giroStages' value='0' min='0' max='255' />
                                 <label for='tourStages'>Tour:</label>
-                                <input type='number' class='numberInput' id='tourStages' name='tourStages' value='0' min='0' />
+                                <input type='number' class='numberInput' id='tourStages' name='tourStages' value='0' min='0' max='255' />
                                 <label for='vueltaStages'>Vuelta:</label>
-                                <input type='number' class='numberInput' id='vueltaStages' name='vueltaStages' value='0' min='0' />
+                                <input type='number' class='numberInput' id='vueltaStages' name='vueltaStages' value='0' min='0' max='255' />
                             </div>
                         </div>
                         <div class='submitAndError'>
