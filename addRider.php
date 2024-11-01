@@ -19,7 +19,7 @@ $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $addRiderHtml = new AddRiderHtml();
 
-// Handling form submission
+// Handle form submission
 $name = $_POST['name'] ?? false;
 $image = $_POST['image'] ?? false;
 $team = $_POST['team'] ?? false;
@@ -32,32 +32,13 @@ $giroStages = $_POST['giroStages'] ?? false;
 $tourStages = $_POST['tourStages'] ?? false;
 $vueltaStages = $_POST['vueltaStages'] ?? false;
 
-if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob)) {
-    $teamId = $teamsModel->getIdFromTeam($team);
-    $nationId = $nationsModel->getIdFromNation($nation);
-
-    if ($teamId === false) {
-        if ($teamsModel->addTeam($team)) {
-            $teamId = $teamsModel->getIdFromTeam($team);
-        } else {
-            header('Location: addRider.php?error=1');
-        }
-    }
-
-    if ($nationId === false) {
-        if ($nationsModel->addNation($nation)) {
-            $nationId = $nationsModel->getIdFromNation($nation);
-        } else {
-            header('Location: addRider.php?error=1');
-        }
-    }
-
+if ($name !== false) { // Prevent validation attempt on page load
     if (
-        $ridersModel->addRider(
+        $riderFormValidator->validateRiderForm(
             $name,
             $image,
-            $teamId,
-            $nationId,
+            $team,
+            $nation,
             $dob,
             $giroGc,
             $tourGc,
@@ -67,13 +48,59 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
             $vueltaStages
         )
     ) {
-        header('Location: index.php');
+        $teamId = $teamsModel->getIdFromTeam($team);
+        if ($teamId === false) { // i.e. team is not in DB
+            if ($teamsModel->addTeam($team)) {
+                $teamId = $teamsModel->getIdFromTeam($team);
+                if ($teamId === false) { // Catch error
+                    header('Location: addRider.php?error=1');
+                    exit;
+                }
+            } else { // Catch error
+                header('Location: addRider.php?error=1');
+                exit;
+            }
+        }
+
+        $nationId = $nationsModel->getIdFromNation($nation);
+        if ($nationId === false) { // i.e. nation is not in DB
+            if ($nationsModel->addNation($nation)) {
+                $nationId = $nationsModel->getIdFromNation($nation);
+                if ($nationId === false) { // Catch error
+                    header('Location: addRider.php?error=1');
+                    exit;
+                }
+            } else { // Catch error
+                header('Location: addRider.php?error=1');
+                exit;
+            }
+        }
+
+        if (
+            $ridersModel->addRider(
+                $name,
+                $image,
+                $teamId,
+                $nationId,
+                $dob,
+                $giroGc,
+                $tourGc,
+                $vueltaGc,
+                $giroStages,
+                $tourStages,
+                $vueltaStages
+            )
+        ) {
+            header('Location: index.php');
+        } else {
+            header('Location: addRider.php?error=1');
+        };
     } else {
         header('Location: addRider.php?error=1');
-    };
+    }
 }
 
-// Displaying the page
+// Display page
 $headHtml->display();
 $headerHtml->display();
 $addRiderHtml->display();
