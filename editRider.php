@@ -19,7 +19,19 @@ $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $editRiderHtml = new EditRiderHtml();
 
-// Handling form submission
+// Redirect if rider id invalid
+$riderId = $_GET['id'] ?? false;
+if (intval($riderId) != $riderId) { // i.e. $riderId is not int
+    header('Location: index.php');
+    exit;
+}
+$rider = $ridersModel->getRiderById($riderId);
+if ($rider === false) { // i.e. rider is not in DB
+    header('Location: index.php');
+    exit;
+}
+
+// Handle form submission
 $name = $_POST['name'] ?? false;
 $image = $_POST['image'] ?? false;
 $team = $_POST['team'] ?? false;
@@ -32,7 +44,7 @@ $giroStages = $_POST['giroStages'] ?? false;
 $tourStages = $_POST['tourStages'] ?? false;
 $vueltaStages = $_POST['vueltaStages'] ?? false;
 
-if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob)) {
+if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob, $giroGc, $tourGc, $vueltaGc, $giroStages, $tourStages, $vueltaStages)) {
     $teamId = $teamsModel->getIdFromTeam($team);
     $nationId = $nationsModel->getIdFromNation($nation);
 
@@ -51,9 +63,6 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
             header('Location: editRider.php?error=1');
         }
     }
-
-    $riderId = $_GET['id'] ?? false;
-    $rider = $ridersModel->getRiderById($riderId);
 
     if (
         $ridersModel->editRider(
@@ -77,7 +86,7 @@ if ($riderFormValidator->validateRiderForm($name, $image, $team, $nation, $dob))
     };
 }
 
-// Displaying the page
+// Display the page
 $headHtml->display();
 $headerHtml->display();
 $editRiderHtml->display($ridersModel);
