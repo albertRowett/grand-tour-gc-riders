@@ -2,10 +2,10 @@
 
 namespace Collection\HTML\PageContents;
 
-use Collection\Models\RidersModel;
 use DateTime;
 
-class RetiredHtml {
+class RetiredHtml
+{
     private function unretireRiderError()
     {
         if (isset($_GET['error']) && $_GET['error'] === '1') {
@@ -13,7 +13,8 @@ class RetiredHtml {
         }
     }
 
-    public function display(array|false $riders) {
+    public function display(array|false $riders)
+    {
         echo "
             <div class='ridersContainer'>
                 <p class='dbError'>{$this->unretireRiderError()}</p>
@@ -38,7 +39,7 @@ class RetiredHtml {
                     </div>
                     <p class='title'><b>GC wins:</b></p>
                     <div class='flexrow'>
-                        <p><b>Giro: </b> $rider->giroGc</p>
+                        <p><b>Giro:</b> $rider->giroGc</p>
                         <p><b>Tour:</b> $rider->tourGc</p>
                         <p><b>Vuelta:</b> $rider->vueltaGc</p>
                     </div>

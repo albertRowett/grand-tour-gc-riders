@@ -19,7 +19,8 @@ class IndexHtml
             <form class='filters'>
                 <label for='teams'>Filter by team:</label>
                 <select name='team' id='teams' onchange='this.form.submit()'>
-                <option value='0'>Select team</option>";
+                <option value='0'>Select team</option>
+        ";
 
         if ($teams) {
             foreach ($teams as $team) {
@@ -54,7 +55,7 @@ class IndexHtml
                     </div>
                     <p class='title'><b>GC wins:</b></p>
                     <div class='flexrow'>
-                        <p><b>Giro: </b> $rider->giroGc</p>
+                        <p><b>Giro:</b> $rider->giroGc</p>
                         <p><b>Tour:</b> $rider->tourGc</p>
                         <p><b>Vuelta:</b> $rider->vueltaGc</p>
                     </div>
@@ -77,6 +78,7 @@ class IndexHtml
 
         echo "
             </div>
-        </body>";
+        </body>
+        ";
     }
 }

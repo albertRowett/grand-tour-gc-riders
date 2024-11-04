@@ -70,7 +70,6 @@ class EditRiderHtml
                     </form>
                 </div>
             </main>
-            
         </body>
         ";
     }
