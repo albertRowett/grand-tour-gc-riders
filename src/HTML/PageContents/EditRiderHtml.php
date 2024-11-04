@@ -8,8 +8,7 @@ class EditRiderHtml
 {
     private function editRiderError()
     {
-        // if (isset($_GET['error']) && $_GET['error'] === '1') {
-        if ($_GET['error'] === '1') {
+        if (isset($_GET['error']) && $_GET['error'] === '1') {
             return 'An error occurred while editing the rider. Please try again later.';
         }
     }
