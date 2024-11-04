@@ -60,6 +60,7 @@ if ($name !== false) { // Prevent validation attempt on page load
             $vueltaStages
         )
     ) {
+        $team = trim($team);
         $teamId = $teamsModel->getIdFromTeam($team);
         if ($teamId === false) { // i.e. team is not in DB
             if ($teamsModel->addTeam($team)) {
@@ -73,7 +74,8 @@ if ($name !== false) { // Prevent validation attempt on page load
                 exit;
             }
         }
-    
+
+        $nation = trim($nation);
         $nationId = $nationsModel->getIdFromNation($nation);
         if ($nationId === false) { // i.e. nation is not in DB
             if ($nationsModel->addNation($nation)) {
@@ -87,6 +89,9 @@ if ($name !== false) { // Prevent validation attempt on page load
                 exit;
             }
         }
+
+        $name = trim($name);
+        $image = trim($image);
 
         if (
             $ridersModel->editRider(
