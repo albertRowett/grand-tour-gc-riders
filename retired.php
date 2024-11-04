@@ -15,7 +15,7 @@ $retiredHtml = new RetiredHtml();
 
 $riders = $ridersModel->getRiders(1, null);
 
-// Handling form submission (edit/unretire rider)
+// Handle form submission (edit/unretire rider)
 if ($riders) {
     foreach ($riders as $rider) {
         $buttonClicked = $_POST[$rider->id] ?? false;
@@ -28,7 +28,7 @@ if ($riders) {
     }
 }
 
-// Displaying the page
+// Display page
 $headHtml->display();
 $headerHtml->display();
 $retiredHtml->display($riders);
