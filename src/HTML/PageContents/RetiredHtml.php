@@ -8,7 +8,7 @@ use DateTime;
 class RetiredHtml {
     private function unretireRiderError()
     {
-        if ($_GET['error'] === '1') {
+        if (isset($_GET['error']) && $_GET['error'] === '1') {
             return 'An error occurred while unretiring the rider. Please try again later.';
         }
     }

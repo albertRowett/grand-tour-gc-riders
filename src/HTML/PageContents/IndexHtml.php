@@ -8,7 +8,7 @@ class IndexHtml
 {
     private function retireRiderError()
     {
-        if ($_GET['error'] === '1') {
+        if (isset($_GET['error']) && $_GET['error'] === '1') {
             return 'An error occurred while retiring the rider. Please try again later.';
         }
     }
