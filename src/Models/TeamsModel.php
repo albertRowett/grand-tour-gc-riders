@@ -14,7 +14,7 @@ class TeamsModel
         $this->db = $db;
     }
 
-    public function getAllTeams(): array|false
+    public function getTeams(): array|false
     {
         $query = $this->db->prepare('SELECT `id`, `team` FROM `teams` ORDER BY `team` ASC;');
         $query->execute();

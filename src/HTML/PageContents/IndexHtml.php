@@ -2,8 +2,6 @@
 
 namespace Collection\HTML\PageContents;
 
-use Collection\Models\RidersModel;
-use Collection\Models\TeamsModel;
 use DateTime;
 
 class IndexHtml
@@ -23,7 +21,7 @@ class IndexHtml
         }
     }
 
-    public function display(RidersModel $ridersModel, TeamsModel $teamsModel): void
+    public function display(array|false $riders, array|false $teams): void
     {
         echo "
             <form class='filters'>
@@ -31,10 +29,8 @@ class IndexHtml
                 <select name='team' id='teams' onchange='this.form.submit()'>
                 <option value='0'>Select team</option>";
 
-        $allTeams = $teamsModel->getAllTeams();
-
-        if ($allTeams) {
-            foreach ($allTeams as $team) {
+        if ($teams) {
+            foreach ($teams as $team) {
                 echo "<option value='$team->id'>$team->team</option>";
             }
         }
@@ -46,9 +42,6 @@ class IndexHtml
             <div class='ridersContainer'>
                 <p class='dbError'>{$this->retireRiderError()}</p>
         ";
-
-        $teamId = $_GET['team'] ?? null;
-        $riders = $ridersModel->getRiders(0, $teamId);
 
         if ($riders) {
             $today = new DateTime(date('y-m-d'));

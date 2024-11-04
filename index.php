@@ -15,22 +15,23 @@ $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $indexHtml = new IndexHtml();
 
-// Handling form submission (rider retirement)
-$allRiders = $ridersModel->getRiders(0, null);
+$riders = $ridersModel->getRiders(0, null);
+$teams = $teamsModel->getTeams();
 
-foreach ($allRiders as $rider) {
-    $buttonClicked = $_POST[$rider->id] ?? false;
+// Handle form submission (edit/retire rider)
+if ($riders) {
+    foreach ($riders as $rider) {
+        $buttonClicked = $_POST[$rider->id] ?? false;
 
-    if ($buttonClicked === 'Retire') {
-        if (!$ridersModel->toggleRiderRetirement($rider->id, 1)) {
-            header('Location: index.php?error=1');
+        if ($buttonClicked === 'Retire') {
+            $ridersModel->toggleRiderRetirement($rider->id, 1) ? header('Location: index.php') : header('Location: index.php?error=1');
+        } elseif ($buttonClicked === 'Edit') {
+            header("Location: editRider.php?id=$rider->id");
         }
-    } elseif ($buttonClicked === 'Edit') {
-        header("Location: editRider.php?id=$rider->id");
     }
 }
 
-// Displaying the page
+// Display page
 $headHtml->display();
 $headerHtml->display();
-$indexHtml->display($ridersModel, $teamsModel);
+$indexHtml->display($riders, $teams);
