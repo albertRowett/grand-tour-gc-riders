@@ -15,7 +15,13 @@ $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $indexHtml = new IndexHtml();
 
-$riders = $ridersModel->getRiders(0, null);
+$teamId = $_GET['team'] ?? null;
+if (intval($teamId) != $teamId) { // i.e. $teamId is not int (or null)
+    header('Location: index.php');
+    exit;
+}
+
+$riders = $ridersModel->getRiders(0, $teamId);
 $teams = $teamsModel->getTeams();
 
 // Handle form submission (edit/retire rider)
