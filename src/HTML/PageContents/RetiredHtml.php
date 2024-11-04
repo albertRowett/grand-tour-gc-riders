@@ -6,14 +6,6 @@ use Collection\Models\RidersModel;
 use DateTime;
 
 class RetiredHtml {
-    private function nullToZero(int|null $wins): int
-    {
-        if ($wins === null) {
-            return 0;
-        }
-        return $wins;
-    }
-
     private function unretireRiderError()
     {
         if ($_GET['error'] === '1') {
@@ -46,15 +38,15 @@ class RetiredHtml {
                     </div>
                     <p class='title'><b>GC wins:</b></p>
                     <div class='flexrow'>
-                        <p><b>Giro: </b> {$this->nullToZero($rider->giroGc)}</p>
-                        <p><b>Tour:</b> {$this->nullToZero($rider->tourGc)}</p>
-                        <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaGc)}</p>
+                        <p><b>Giro: </b> $rider->giroGc</p>
+                        <p><b>Tour:</b> $rider->tourGc</p>
+                        <p><b>Vuelta:</b> $rider->vueltaGc</p>
                     </div>
                     <p class='title'><b>Stage wins:</b></p>
                     <div class='flexrow'>
-                        <p><b>Giro:</b> {$this->nullToZero($rider->giroStages)}</p>
-                        <p><b>Tour:</b> {$this->nullToZero($rider->tourStages)}</p>
-                        <p><b>Vuelta:</b> {$this->nullToZero($rider->vueltaStages)}</p>
+                        <p><b>Giro:</b> $rider->giroStages</p>
+                        <p><b>Tour:</b> $rider->tourStages</p>
+                        <p><b>Vuelta:</b> $rider->vueltaStages</p>
                     </div>
                     <form class='riderButtons' method='POST'>
                         <input type='submit' class='riderButton' name='$rider->id' value='Edit' />

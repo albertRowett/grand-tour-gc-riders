@@ -135,12 +135,12 @@ class RidersModel
         int $teamId,
         int $nationId,
         string $dob,
-        ?int $giroGc,
-        ?int $tourGc,
-        ?int $vueltaGc,
-        ?int $giroStages,
-        ?int $tourStages,
-        ?int $vueltaStages
+        int $giroGc,
+        int $tourGc,
+        int $vueltaGc,
+        int $giroStages,
+        int $tourStages,
+        int $vueltaStages
     ): bool {
         $query = $this->db->prepare('
             INSERT INTO `riders` (
@@ -196,12 +196,12 @@ class RidersModel
         int $teamId,
         int $nationId,
         string $dob,
-        ?int $giroGc,
-        ?int $tourGc,
-        ?int $vueltaGc,
-        ?int $giroStages,
-        ?int $tourStages,
-        ?int $vueltaStages
+        int $giroGc,
+        int $tourGc,
+        int $vueltaGc,
+        int $giroStages,
+        int $tourStages,
+        int $vueltaStages
     ): bool {
         $query = $this->db->prepare('
             UPDATE `riders` SET
