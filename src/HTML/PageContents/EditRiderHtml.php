@@ -2,7 +2,7 @@
 
 namespace Collection\HTML\PageContents;
 
-use Collection\Models\RidersModel;
+use Collection\Entities\Rider;
 
 class EditRiderHtml
 {
@@ -13,11 +13,9 @@ class EditRiderHtml
         }
     }
 
-    public function display(RidersModel $ridersModel): void
+    public function display(Rider $rider): void
     {
-        $riderId = $_GET['id'] ?? false;
-        $rider = $ridersModel->getRiderById($riderId);
-        $teamWording = $rider->retired ? 'Last team' : ' Team';
+        $teamWording = $rider->retired ? 'Last team' : 'Team';
 
         echo "
             <main class='riderFormContainer'>

@@ -121,4 +121,4 @@ if ($name !== false) { // Prevent validation attempt on page load
 // Display the page
 $headHtml->display();
 $headerHtml->display();
-$editRiderHtml->display($ridersModel);
+$editRiderHtml->display($rider);
