@@ -46,7 +46,7 @@ class IndexHtml
                 $age = $diff->y;
 
                 echo "
-                <div class='riderContainer afterFilters'>
+                <div class='riderContainer'>
                     <h3>$rider->name</h3>
                     <img src='$rider->image' alt='$rider->name in $rider->team jersey' />
                     <p><b>Team:</b> $rider->team</p>

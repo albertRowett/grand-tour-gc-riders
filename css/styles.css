@@ -30,6 +30,31 @@ footer {
   width: 100%;
 }
 
+p {
+  margin: 7.5px 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+.dbError {
+  margin-top: 15px;
+  color: red;
+}
+
+.flexrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+/* Only applicable to header HTML */
+
 h1 {
   font-size: x-large;
   text-align: center;
@@ -52,6 +77,8 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Only applicable to index/retired HTML */
 
 .filters {
   position: fixed;
@@ -84,12 +111,6 @@ a:hover {
   flex-direction: column;
 }
 
-.flexrow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 h3 {
   margin: 7.5px 0;
   font-size: larger;
@@ -98,14 +119,6 @@ h3 {
 
 img {
   margin: 7.5px auto;
-}
-
-p {
-  margin: 7.5px 0;
-}
-
-.title {
-  margin-bottom: 0;
 }
 
 .riderButtons {
@@ -122,12 +135,7 @@ p {
 margin: 15px auto;
 }
 
-.dbError {
-  margin-top: 15px;
-  color: red;
-}
-
-/* Apply to addRider page only: */
+/* Only applicable to addRider/editRider HTML: */
 
 .riderFormContainer {
   width: 100%;
@@ -166,10 +174,6 @@ h2 {
   margin: 7.5px auto;
 }
 
-label {
-  font-weight: bold;
-}
-
 .textInput {
   width: 192px;
 }
@@ -187,14 +191,14 @@ label {
   width: 45px;
 }
 
+.submitAndError {
+  text-align: center;
+}
+
 .validationError {
   color: red;
 }
 
 .hidden {
   display: none;
-}
-
-.submitAndError {
-  text-align: center;
 }
