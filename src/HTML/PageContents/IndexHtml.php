@@ -16,6 +16,7 @@ class IndexHtml
     public function display(array|false $riders, array|false $teams): void
     {
         echo "
+        <main>
             <form class='filters'>
                 <label for='teams'>Filter by team:</label>
                 <select name='team' id='teams' onchange='this.form.submit()'>
@@ -45,7 +46,7 @@ class IndexHtml
                 $age = $diff->y;
 
                 echo "
-                <div class='riderContainer'>
+                <div class='riderContainer afterFilters'>
                     <h3>$rider->name</h3>
                     <img src='$rider->image' alt='$rider->name in $rider->team jersey' />
                     <p><b>Team:</b> $rider->team</p>
@@ -76,9 +77,9 @@ class IndexHtml
             echo "<p class='noRidersError'>No riders found</p>";
         }
 
-        echo "
+        echo '
             </div>
-        </body>
-        ";
+        </main>
+        ';
     }
 }

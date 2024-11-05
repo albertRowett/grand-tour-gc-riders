@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -11,6 +17,17 @@ header {
   width: 100%;
   background-color: black;
   color: white;
+}
+
+main {
+  flex-grow: 1;
+  margin: 72.55px 0 1rem 0;
+}
+
+footer {
+  font-size: small;
+  text-align: center;
+  width: 100%;
 }
 
 h1 {
@@ -38,7 +55,6 @@ a:hover {
 
 .filters {
   position: fixed;
-  top: 72.55px;
   z-index: 100;
   width: 100%;
   margin: 0;
@@ -47,9 +63,11 @@ a:hover {
   font-size: smaller;
 }
 
+.filters + .ridersContainer {
+  margin-top: 30px;
+}
+
 .ridersContainer {
-  position: absolute;
-  top: 93.05px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -112,8 +130,6 @@ margin: 15px auto;
 /* Apply to addRider page only: */
 
 .riderFormContainer {
-  position: absolute;
-  top: 72.55px;
   width: 100%;
   display: flex;
   justify-content: center;

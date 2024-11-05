@@ -16,6 +16,7 @@ class RetiredHtml
     public function display(array|false $riders)
     {
         echo "
+        <main>
             <div class='ridersContainer'>
                 <p class='dbError'>{$this->unretireRiderError()}</p>
         ";
@@ -59,5 +60,10 @@ class RetiredHtml
         } else {
             echo "<p class='noRidersError'>No riders found</p>";
         }
+
+        echo '
+            </div>
+        </main>
+        ';
     }
 }
