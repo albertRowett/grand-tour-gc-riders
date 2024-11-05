@@ -1,6 +1,7 @@
 <?php
 
 use Collection\HTML\HeadHtml;
+use Collection\HTML\PageContents\FooterHtml;
 use Collection\HTML\PageContents\HeaderHtml;
 use Collection\HTML\PageContents\RetiredHtml;
 use Collection\Models\RidersModel;
@@ -12,6 +13,7 @@ $ridersModel = new RidersModel($db);
 $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $retiredHtml = new RetiredHtml();
+$footerHtml = new FooterHtml();
 
 $riders = $ridersModel->getRiders(1, null);
 
@@ -32,3 +34,4 @@ if ($riders) {
 $headHtml->display();
 $headerHtml->display();
 $retiredHtml->display($riders);
+$footerHtml->display();

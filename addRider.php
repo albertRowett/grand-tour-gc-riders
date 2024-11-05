@@ -2,6 +2,7 @@
 
 use Collection\HTML\HeadHtml;
 use Collection\HTML\PageContents\AddRiderHtml;
+use Collection\HTML\PageContents\FooterHtml;
 use Collection\HTML\PageContents\HeaderHtml;
 use Collection\Models\NationsModel;
 use Collection\Models\RidersModel;
@@ -18,6 +19,7 @@ $nationsModel = new NationsModel($db);
 $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $addRiderHtml = new AddRiderHtml();
+$footerHtml = new FooterHtml();
 
 // Handle form submission
 $name = $_POST['name'] ?? false;
@@ -109,3 +111,4 @@ if ($name !== false) { // Prevent validation attempt on page load
 $headHtml->display();
 $headerHtml->display();
 $addRiderHtml->display();
+$footerHtml->display();

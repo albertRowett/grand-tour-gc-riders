@@ -2,6 +2,7 @@
 
 use Collection\HTML\HeadHtml;
 use Collection\HTML\PageContents\EditRiderHtml;
+use Collection\HTML\PageContents\FooterHtml;
 use Collection\HTML\PageContents\HeaderHtml;
 use Collection\Models\NationsModel;
 use Collection\Models\RidersModel;
@@ -18,6 +19,7 @@ $nationsModel = new NationsModel($db);
 $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $editRiderHtml = new EditRiderHtml();
+$footerHtml = new FooterHtml();
 
 // Redirect if rider id invalid
 $riderId = $_GET['id'] ?? false;
@@ -122,3 +124,4 @@ if ($name !== false) { // Prevent validation attempt on page load
 $headHtml->display();
 $headerHtml->display();
 $editRiderHtml->display($rider);
+$footerHtml->display();

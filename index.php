@@ -1,6 +1,7 @@
 <?php
 
 use Collection\HTML\HeadHtml;
+use Collection\HTML\PageContents\FooterHtml;
 use Collection\HTML\PageContents\HeaderHtml;
 use Collection\HTML\PageContents\IndexHtml;
 use Collection\Models\RidersModel;
@@ -14,6 +15,7 @@ $teamsModel = new TeamsModel($db);
 $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
 $indexHtml = new IndexHtml();
+$footerHtml = new FooterHtml();
 
 $teamId = $_GET['team'] ?? null;
 if (intval($teamId) != $teamId) { // i.e. $teamId is not int (or null)
@@ -41,3 +43,4 @@ if ($riders) {
 $headHtml->display();
 $headerHtml->display();
 $indexHtml->display($riders, $teams);
+$footerHtml->display();
