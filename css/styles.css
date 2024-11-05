@@ -8,11 +8,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  align-items: center;
 }
 
 header {
   position: fixed;
-  top: 0;
   z-index: 100;
   width: 100%;
   background-color: black;
@@ -27,7 +27,6 @@ main {
 footer {
   font-size: small;
   text-align: center;
-  width: 100%;
 }
 
 p {
@@ -38,8 +37,8 @@ label {
   font-weight: bold;
 }
 
-.dbError {
-  margin-top: 15px;
+.errorMsg {
+  margin: 5px 30px 0 30px;
   color: red;
 }
 
@@ -90,14 +89,13 @@ a:hover {
   font-size: smaller;
 }
 
-.filters + .ridersContainer {
+.filters + .dbError {
   margin-top: 30px;
 }
 
 .ridersContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   justify-content: center;
 }
 
@@ -106,13 +104,13 @@ a:hover {
   margin: 15px;
   border: 1px solid black;
   border-radius: 15px;
-  padding: 17.5px 25px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
 }
 
 h3 {
-  margin: 7.5px 0;
+  margin-bottom: 7.5px;
   font-size: larger;
   text-align: center;
 }
@@ -122,7 +120,7 @@ img {
 }
 
 .riderButtons {
-  margin: 15px 0 7.5px 0;
+  margin-top: 15px;
   display: flex;
   justify-content: space-between;
 }
@@ -131,20 +129,15 @@ img {
   font-size: small;
 }
 
-.noRidersError {
-margin: 15px auto;
+.noRidersMsg {
+margin-top: 15px;
 }
 
 /* Only applicable to addRider/editRider HTML: */
 
 .riderFormContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.width330 {
   width: 330px;
+  margin: 0 auto;
 }
 
 h2 {
@@ -153,8 +146,7 @@ h2 {
 }
 
 .riderStats {
-  width: 330px;
-  margin: 15px 0 7.5px 0;
+  margin-bottom: 7.5px;
   border: 1px solid black;
   border-radius: 15px;
   padding: 17.5px 25px;
@@ -174,28 +166,25 @@ h2 {
   margin: 7.5px auto;
 }
 
-.textInput {
+input[type='text'] {
   width: 192px;
 }
 
 .imgInput {
   width: 112px;
-  min-width: 112px;
-  max-width: 112px;
   height: 174px;
-  min-height: 174px;
-  max-height: 174px;
+  resize: none;
 }
 
-.numberInput {
+input[type='number'] {
   width: 45px;
 }
 
-.submitAndError {
+.riderFormSubmit {
   text-align: center;
 }
 
-.validationError {
+.validationErrorMsg {
   color: red;
 }
 

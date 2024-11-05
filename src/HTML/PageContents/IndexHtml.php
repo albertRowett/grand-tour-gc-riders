@@ -33,8 +33,8 @@ class IndexHtml
                 </select>
                 <noscript><input type='submit' value='Submit'></noscript>
             </form>
+            <p class='errorMsg'>{$this->retireRiderError()}</p>
             <div class='ridersContainer'>
-                <p class='dbError'>{$this->retireRiderError()}</p>
         ";
 
         if ($riders) {
@@ -74,7 +74,7 @@ class IndexHtml
                 ";
             }
         } else {
-            echo "<p class='noRidersError'>No riders found</p>";
+            echo "<p class='noRidersMsg'>No riders found</p>";
         }
 
         echo '

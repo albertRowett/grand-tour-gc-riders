@@ -17,8 +17,8 @@ class RetiredHtml
     {
         echo "
         <main>
+            <p class='errorMsg'>{$this->unretireRiderError()}</p>
             <div class='ridersContainer'>
-                <p class='dbError'>{$this->unretireRiderError()}</p>
         ";
 
         if ($riders) {
@@ -58,7 +58,7 @@ class RetiredHtml
                 ";
             }
         } else {
-            echo "<p class='noRidersError'>No riders found</p>";
+            echo "<p class='noRidersMsg'>No riders found</p>";
         }
 
         echo '
