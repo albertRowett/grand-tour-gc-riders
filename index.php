@@ -42,5 +42,5 @@ if ($riders) {
 // Display page
 $headHtml->display();
 $headerHtml->display();
-$indexHtml->display($riders, $teams);
+$indexHtml->display($riders, $teams, $teamId);
 $footerHtml->display();

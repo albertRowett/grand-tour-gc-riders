@@ -13,19 +13,20 @@ class IndexHtml
         }
     }
 
-    public function display(array|false $riders, array|false $teams): void
+    public function display(array|false $riders, array|false $teams, ?int $selectedTeamId): void
     {
         echo "
         <main>
             <form class='filters'>
                 <label for='teams'>Filter by team:</label>
                 <select name='team' id='teams' onchange='this.form.submit()'>
-                <option value='0'>Select team</option>
+                <option value='null'" . ($selectedTeamId === null ? ' selected' : '') . ">All teams</option>
         ";
 
         if ($teams) {
             foreach ($teams as $team) {
-                echo "<option value='$team->id'>$team->team</option>";
+                $isSelected = $team->id === $selectedTeamId ? ' selected' : '';
+                echo "<option value='$team->id' $isSelected>$team->team</option>";
             }
         }
 
