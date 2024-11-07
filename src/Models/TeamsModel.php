@@ -47,6 +47,13 @@ class TeamsModel
         return false;
     }
 
+    public function checkForTeamById(int $id): bool
+    {
+        $query = $this->db->prepare('SELECT 1 FROM `teams` WHERE `id` = :id;');
+        $query->execute(['id' => $id]);
+        return (bool) $query->fetch();
+    }
+
     public function addTeam(string $team): bool
     {
         $query = $this->db->prepare('INSERT INTO `teams` (`team`) VALUES (:team);');

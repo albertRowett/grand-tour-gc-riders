@@ -18,7 +18,7 @@ $indexHtml = new IndexHtml();
 $footerHtml = new FooterHtml();
 
 $teamId = $_GET['team'] ?? null;
-if (intval($teamId) != $teamId) { // i.e. $teamId is not int (or null)
+if ($teamId !== null && (intval($teamId) != $teamId || $teamsModel->checkForTeamById($teamId) === false)) { // short-circuit DB check if $teamId is non-int
     header('Location: index.php');
     exit;
 }
