@@ -54,7 +54,7 @@ if (riderForm) {
 
         if (invalidInputs.length !== 0) {
             submit.preventDefault();
-            document.querySelector('.validationError').classList.remove('hidden');
+            document.querySelector('.validationErrorMsg').classList.remove('hidden');
             inputs.forEach(input => {
                 const label = document.querySelector(`label[for="${input}"]`);
                 label.style.color = invalidInputs.includes(input) ? 'red' : 'black';
