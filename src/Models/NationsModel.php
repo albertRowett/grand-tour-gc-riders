@@ -25,6 +25,13 @@ class NationsModel
         return false;
     }
 
+    public function checkForNationById(int $id): bool
+    {
+        $query = $this->db->prepare('SELECT 1 FROM `nations` WHERE `id` = :id;');
+        $query->execute(['id' => $id]);
+        return (bool) $query->fetch();
+    }
+
     public function addNation(string $nation): bool
     {
         $query = $this->db->prepare('INSERT INTO `nations` (`nation`) VALUES (:nation);');

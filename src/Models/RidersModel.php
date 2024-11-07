@@ -14,7 +14,7 @@ class RidersModel
         $this->db = $db;
     }
 
-    public function getRiders(int $retired, ?int $teamId): array|false
+    public function getRiders(int $retired, ?int $teamId, ?int $nationId): array|false
     {
         $queryString = '
             SELECT
@@ -39,7 +39,10 @@ class RidersModel
             WHERE `riders`.`retired` = :retired
         ';
         if ($teamId !== null) {
-            $queryString .= 'AND `teams`.`id` = :teamId';
+            $queryString .= ' AND `teams`.`id` = :teamId';
+        }
+        if ($nationId !== null) {
+            $queryString .= ' AND `nations`.`id` = :nationId';
         }
         $queryString .= '
             ORDER BY (`riders`.`giro_gc` + `riders`.`tour_gc` + `riders`.`vuelta_gc`) DESC,
@@ -50,6 +53,9 @@ class RidersModel
         $params = ['retired' => $retired];
         if ($teamId !== null) {
             $params['teamId'] = $teamId;
+        }
+        if ($nationId !== null) {
+            $params['nationId'] = $nationId;
         }
         $query->execute($params);
         $data = $query->fetchAll();
