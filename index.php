@@ -20,12 +20,14 @@ $indexHtml = new IndexHtml();
 $footerHtml = new FooterHtml();
 
 $teamId = $_GET['team'] ?? null;
+$teamId = $teamId === '0' ? null : $teamId;
 if ($teamId !== null && (intval($teamId) != $teamId || $teamsModel->checkForTeamById($teamId) === false)) { // short-circuit DB check if $teamId is non-int
     header('Location: index.php');
     exit;
 }
 
 $nationId = $_GET['nation'] ?? null;
+$nationId = $nationId === '0' ? null : $nationId;
 if ($nationId !== null && (intval($nationId) != $nationId || $nationsModel->checkForNationById($nationId) === false)) { // short-circuit DB check if $nationId is non-int
     header('Location: index.php');
     exit;
@@ -33,6 +35,7 @@ if ($nationId !== null && (intval($nationId) != $nationId || $nationsModel->chec
 
 $riders = $ridersModel->getRiders(0, $teamId, $nationId);
 $teams = $teamsModel->getTeams();
+$nations = $nationsModel->getNations();
 
 // Handle form submission (edit/retire rider)
 if ($riders) {
@@ -50,5 +53,5 @@ if ($riders) {
 // Display page
 $headHtml->display();
 $headerHtml->display();
-$indexHtml->display($riders, $teams, $teamId);
+$indexHtml->display($riders, $teams, $teamId, $nations, $nationId);
 $footerHtml->display();

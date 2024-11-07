@@ -2,6 +2,7 @@
 
 namespace Collection\Models;
 
+use Collection\Entities\Nation;
 use PDO;
 
 class NationsModel
@@ -11,6 +12,27 @@ class NationsModel
     public function __construct(PDO $db)
     {
         $this->db = $db;
+    }
+
+    public function getNations(): array|false
+    {
+        $query = $this->db->prepare('SELECT `id`, `nation` FROM `nations` ORDER BY `nation` ASC;');
+        $query->execute();
+        $data = $query->fetchAll();
+
+        if (!$data) {
+            return false;
+        }
+
+        $nations = [];
+        foreach ($data as $datum) {
+            $nation = new Nation(
+                $datum['id'],
+                $datum['nation']
+            );
+            $nations[] = $nation;
+        }
+        return $nations;
     }
 
     public function getIdFromNation(string $nation): int|false

@@ -13,14 +13,15 @@ class IndexHtml
         }
     }
 
-    public function display(array|false $riders, array|false $teams, ?int $selectedTeamId): void
+    public function display(array|false $riders, array|false $teams, ?int $selectedTeamId, array|false $nations, ?int $selectedNationId): void
     {
         echo "
         <main>
             <form class='filters'>
-                <label for='teams'>Filter by team:</label>
-                <select name='team' id='teams' onchange='this.form.submit()'>
-                <option value='null'" . ($selectedTeamId === null ? ' selected' : '') . ">All teams</option>
+                <div>
+                    <label for='teams'>Filter by team:</label>
+                    <select name='team' id='teams' onchange='this.form.submit()'>
+                        <option value='0'" . ($selectedTeamId === null ? ' selected' : '') . ">All teams</option>
         ";
 
         if ($teams) {
@@ -31,7 +32,24 @@ class IndexHtml
         }
 
         echo "
-                </select>
+                    </select>
+                </div>
+                <div>
+                    <label for='nations'>Filter by nation:</label>
+                    <select name='nation' id='nations' onchange='this.form.submit()'>
+                        <option value='0'" . ($selectedNationId === null ? ' selected' : '') . ">All nations</option>
+        ";
+
+        if ($nations) {
+            foreach ($nations as $nation) {
+                $isSelected = $nation->id === $selectedNationId ? ' selected' : '';
+                echo "<option value='$nation->id' $isSelected>$nation->nation</option>";
+            }
+        }
+
+        echo "
+                    </select>
+                </div>
                 <noscript><input type='submit' value='Submit'></noscript>
             </form>
             <p class='errorMsg'>{$this->retireRiderError()}</p>

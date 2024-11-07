@@ -83,18 +83,16 @@ a:hover {
 /* Only applicable to index/retired HTML */
 
 .filters {
+    display: flex;
     z-index: 100;
     position: fixed;
+    flex-wrap: wrap;
     width: 100%;
     margin: 0;
     padding: 0.5rem 1rem 0.125rem 1rem;
+    gap: 0.25rem 1rem;
     background-color: white;
     font-size: smaller;
-}
-
-.filters + .errorMsg {
-    /* margin = height of fixed filters section (form) */
-    margin-top: 1.875rem;
 }
 
 .ridersContainer {
