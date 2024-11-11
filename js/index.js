@@ -1,4 +1,4 @@
-// Rider form front-end validation
+// Rider form front-end validation- only applicable to add/edit rider pages:
 const riderForm = document.querySelector('.riderForm');
 
 if (riderForm) {
@@ -31,26 +31,31 @@ if (riderForm) {
         const tourStagesInput = document.querySelector('#tourStages').value;
         const vueltaStagesInput = document.querySelector('#vueltaStages').value;
 
+        const trimmedName = nameInput.trim();
+        const trimmedImage = imageInput.trim();
+        const trimmedTeam = teamInput.trim();
+        const trimmedNation = nationInput.trim();
+        const dobRegex = /^(\d{4})-(\d{2})-(\d{2})$/;
+        const giroGcInt = parseInt(giroGcInput);
+        const tourGcInt = parseInt(tourGcInput);
+        const vueltaGcInt = parseInt(vueltaGcInput);
+        const giroStagesInt = parseInt(giroStagesInput);
+        const tourStagesInt = parseInt(tourStagesInput);
+        const vueltaStagesInt = parseInt(vueltaStagesInput);
+
         const invalidInputs = [];
 
-        const trimmedNameInput = nameInput.trim();
-        const trimmedImageInput = imageInput.trim();
-        const trimmedTeamInput = teamInput.trim();
-        const trimmedNationInput = nationInput.trim();
-        const dobRegex = /^(\d{4})-(\d{2})-(\d{2})$/;
-
-        if (trimmedNameInput === '' || trimmedNameInput.length > 999) invalidInputs.push('name');
-        if (trimmedImageInput === '' || trimmedImageInput.length > 999) invalidInputs.push('image');
-        if (trimmedTeamInput === '' || trimmedTeamInput.length > 999) invalidInputs.push('team');
-        if (trimmedNationInput === '' || trimmedNationInput.length > 999) invalidInputs.push('nation');
+        if (trimmedName === '' || trimmedName.length > 999) invalidInputs.push('name');
+        if (trimmedImage === '' || trimmedImage.length > 999) invalidInputs.push('image');
+        if (trimmedTeam === '' || trimmedTeam.length > 999) invalidInputs.push('team');
+        if (trimmedNation === '' || trimmedNation.length > 999) invalidInputs.push('nation');
         if (!dobRegex.test(dobInput) || !isValidDate(dobInput)) invalidInputs.push('dob');
-        if (!Number.isInteger(Number(giroGcInput)) || Number(giroGcInput) < 0) invalidInputs.push('giroGc');
-        if (!Number.isInteger(Number(tourGcInput)) || Number(tourGcInput) < 0) invalidInputs.push('tourGc');
-        if (!Number.isInteger(Number(vueltaGcInput)) || Number(vueltaGcInput) < 0) invalidInputs.push('vueltaGc');
-        if (!Number.isInteger(Number(giroStagesInput)) || Number(giroStagesInput) < 0) invalidInputs.push('giroStages');
-        if (!Number.isInteger(Number(tourStagesInput)) || Number(tourStagesInput) < 0) invalidInputs.push('tourStages');
-        if (!Number.isInteger(Number(vueltaStagesInput)) || Number(vueltaStagesInput) < 0)
-            invalidInputs.push('vueltaStages');
+        if (!Number.isInteger(giroGcInt) || giroGcInt < 0 || giroGcInt > 255) invalidInputs.push('giroGc');
+        if (!Number.isInteger(tourGcInt) || tourGcInt < 0 || tourGcInt > 255) invalidInputs.push('tourGc');
+        if (!Number.isInteger(vueltaGcInt) || vueltaGcInt < 0 || vueltaGcInt > 255) invalidInputs.push('vueltaGc');
+        if (!Number.isInteger(giroStagesInt) || giroStagesInt < 0 || giroStagesInt > 255) invalidInputs.push('giroStages');
+        if (!Number.isInteger(tourStagesInt) || tourStagesInt < 0 || tourStagesInt > 255) invalidInputs.push('tourStages');
+        if (!Number.isInteger(vueltaStagesInt) || vueltaStagesInt < 0 || vueltaStagesInt > 255) invalidInputs.push('vueltaStages');
 
         if (invalidInputs.length !== 0) {
             submit.preventDefault();
