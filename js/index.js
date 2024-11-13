@@ -1,3 +1,31 @@
+// Highlight name of active page in navbar:
+const links = document.querySelectorAll('nav a');
+var url = window.location.href;
+if (url.includes('?')) {
+    url = url.slice(0, url.lastIndexOf('?'));
+}
+
+links.forEach(link => {
+    if (link.href === url) {
+        link.style.backgroundColor = 'white';
+        link.style.color = 'black';
+    }
+});
+
+// Set error message offset when rider filters present- only applicable to index page:
+const filters = document.querySelector('.filters');
+
+if (filters) {
+    setErrorMsgOffset();
+    window.addEventListener('resize', setErrorMsgOffset);
+
+    function setErrorMsgOffset() {
+        const errorMsg = document.querySelector('.errorMsg');
+        const filtersHeight = filters.offsetHeight;
+        errorMsg.style.marginTop = `${filtersHeight}px`;
+    }
+}
+
 // Rider form front-end validation- only applicable to add/edit rider pages:
 const riderForm = document.querySelector('.riderForm');
 
@@ -72,19 +100,5 @@ if (riderForm) {
         const date = new Date(year, month - 1, day); // Month is zero-indexed in JS Date
 
         return date && date.getFullYear() === year && date.getMonth() + 1 === month && date.getDate() === day;
-    }
-}
-
-// Set error message offset when rider filters present- only applicable to index page:
-const filters = document.querySelector('.filters');
-
-if (filters) {
-    setErrorMsgOffset();
-    window.addEventListener('resize', setErrorMsgOffset);
-
-    function setErrorMsgOffset() {
-        const errorMsg = document.querySelector('.errorMsg');
-        const filtersHeight = filters.offsetHeight;
-        errorMsg.style.marginTop = `${filtersHeight}px`;
     }
 }

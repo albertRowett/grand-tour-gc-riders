@@ -23,7 +23,7 @@ main {
     flex-grow: 1;
     width: 100%;
     /* top margin = height of fixed header */
-    margin: 4.6594rem 0 1rem 0;
+    margin: 4.9125rem 0 1rem 0;
 }
 
 footer {
@@ -71,8 +71,11 @@ nav {
 }
 
 a {
+    padding: 0.3125rem 0.25rem 0.0625rem 0.25rem;
+    border-radius: 0.25rem;
     color: white;
     font-size: small;
+    line-height: 1;
     text-decoration: none;
 }
 
