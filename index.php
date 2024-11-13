@@ -21,14 +21,22 @@ $footerHtml = new FooterHtml();
 
 $teamId = $_GET['team'] ?? null;
 $teamId = $teamId === '0' ? null : $teamId;
-if ($teamId !== null && (intval($teamId) != $teamId || $teamsModel->checkForTeamById($teamId) === false)) { // short-circuit DB check if $teamId is non-int
+if (
+    $teamId !== null
+    && (intval($teamId) != $teamId // short-circuit DB check if $teamId is non-int
+    || $teamsModel->checkForTeamById($teamId) === false)
+) {
     header('Location: index.php');
     exit;
 }
 
 $nationId = $_GET['nation'] ?? null;
 $nationId = $nationId === '0' ? null : $nationId;
-if ($nationId !== null && (intval($nationId) != $nationId || $nationsModel->checkForNationById($nationId) === false)) { // short-circuit DB check if $nationId is non-int
+if (
+    $nationId !== null
+    && (intval($nationId) != $nationId // short-circuit DB check if $nationId is non-int
+    || $nationsModel->checkForNationById($nationId) === false)
+) {
     header('Location: index.php');
     exit;
 }
@@ -43,9 +51,16 @@ if ($riders) {
         $buttonClicked = $_POST[$rider->id] ?? false;
 
         if ($buttonClicked === 'Retire') {
-            $ridersModel->toggleRiderRetirement($rider->id, 1) ? header('Location: index.php') : header('Location: index.php?error=1');
+            if ($ridersModel->toggleRiderRetirement($rider->id, 1)) {
+                header('Location: index.php');
+                exit;
+            } else {
+                header('Location: index.php?error=1');
+                exit;
+            }
         } elseif ($buttonClicked === 'Edit') {
             header("Location: editRider.php?id=$rider->id");
+            exit;
         }
     }
 }

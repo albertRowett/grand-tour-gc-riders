@@ -13,7 +13,13 @@ class IndexHtml
         }
     }
 
-    public function display(array|false $riders, array|false $teams, ?int $selectedTeamId, array|false $nations, ?int $selectedNationId): void
+    public function display(
+        array|false $riders,
+        array|false $teams,
+        ?int $selectedTeamId,
+        array|false $nations,
+        ?int $selectedNationId
+    ): void
     {
         echo "
         <main>

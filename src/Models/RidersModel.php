@@ -18,19 +18,19 @@ class RidersModel
     {
         $queryString = '
             SELECT
-            `riders`.`id`,
-            `riders`.`name`,
-            `riders`.`image`,
-            `teams`.`team`,
-            `nations`.`nation`,
-            `riders`.`dob`,
-            `riders`.`giro_gc`,
-            `riders`.`tour_gc`,
-            `riders`.`vuelta_gc`,
-            `riders`.`giro_stages`,
-            `riders`.`tour_stages`,
-            `riders`.`vuelta_stages`,
-            `riders`.`retired`
+                `riders`.`id`,
+                `riders`.`name`,
+                `riders`.`image`,
+                `teams`.`team`,
+                `nations`.`nation`,
+                `riders`.`dob`,
+                `riders`.`giro_gc`,
+                `riders`.`tour_gc`,
+                `riders`.`vuelta_gc`,
+                `riders`.`giro_stages`,
+                `riders`.`tour_stages`,
+                `riders`.`vuelta_stages`,
+                `riders`.`retired`
             FROM `riders`
                 INNER JOIN `teams`
                     ON `riders`.`team_id` = `teams`.`id`
@@ -90,19 +90,19 @@ class RidersModel
     {
         $query = $this->db->prepare('
             SELECT
-            `riders`.`id`,
-            `riders`.`name`,
-            `riders`.`image`,
-            `teams`.`team`,
-            `nations`.`nation`,
-            `riders`.`dob`,
-            `riders`.`giro_gc`,
-            `riders`.`tour_gc`,
-            `riders`.`vuelta_gc`,
-            `riders`.`giro_stages`,
-            `riders`.`tour_stages`,
-            `riders`.`vuelta_stages`,
-            `riders`.`retired`
+                `riders`.`id`,
+                `riders`.`name`,
+                `riders`.`image`,
+                `teams`.`team`,
+                `nations`.`nation`,
+                `riders`.`dob`,
+                `riders`.`giro_gc`,
+                `riders`.`tour_gc`,
+                `riders`.`vuelta_gc`,
+                `riders`.`giro_stages`,
+                `riders`.`tour_stages`,
+                `riders`.`vuelta_stages`,
+                `riders`.`retired`
             FROM `riders`
                 INNER JOIN `teams`
                     ON `riders`.`team_id` = `teams`.`id`
@@ -150,32 +150,32 @@ class RidersModel
     ): bool {
         $query = $this->db->prepare('
             INSERT INTO `riders` (
-            `name`,
-            `image`,
-            `team_id`,
-            `nation_id`,
-            `dob`,
-            `giro_gc`,
-            `tour_gc`,
-            `vuelta_gc`,
-            `giro_stages`,
-            `tour_stages`,
-            `vuelta_stages`,
-            `retired`
+                `name`,
+                `image`,
+                `team_id`,
+                `nation_id`,
+                `dob`,
+                `giro_gc`,
+                `tour_gc`,
+                `vuelta_gc`,
+                `giro_stages`,
+                `tour_stages`,
+                `vuelta_stages`,
+                `retired`
             )
             VALUES (
-            :name,
-            :image,
-            :teamId,
-            :nationId,
-            :dob,
-            :giroGc,
-            :tourGc,
-            :vueltaGc,
-            :giroStages,
-            :tourStages,
-            :vueltaStages,
-            0
+                :name,
+                :image,
+                :teamId,
+                :nationId,
+                :dob,
+                :giroGc,
+                :tourGc,
+                :vueltaGc,
+                :giroStages,
+                :tourStages,
+                :vueltaStages,
+                0
             );
         ');
         return $query->execute(
@@ -211,17 +211,17 @@ class RidersModel
     ): bool {
         $query = $this->db->prepare('
             UPDATE `riders` SET
-            `name` = :name,
-            `image` = :image,
-            `team_id` = :teamId,
-            `nation_id` = :nationId,
-            `dob` = :dob,
-            `giro_gc` = :giroGc,
-            `tour_gc` = :tourGc,
-            `vuelta_gc` = :vueltaGc,
-            `giro_stages` = :giroStages,
-            `tour_stages` = :tourStages,
-            `vuelta_stages` = :vueltaStages
+                `name` = :name,
+                `image` = :image,
+                `team_id` = :teamId,
+                `nation_id` = :nationId,
+                `dob` = :dob,
+                `giro_gc` = :giroGc,
+                `tour_gc` = :tourGc,
+                `vuelta_gc` = :vueltaGc,
+                `giro_stages` = :giroStages,
+                `tour_stages` = :tourStages,
+                `vuelta_stages` = :vueltaStages
             WHERE `id` = :id;
         ');
         return $query->execute(
@@ -244,7 +244,12 @@ class RidersModel
 
     public function toggleRiderRetirement(int $id, int $retired): bool
     {
-        $query = $this->db->prepare("UPDATE `riders` SET `retired` = $retired WHERE `id` = $id;");
-        return $query->execute();
+        $query = $this->db->prepare('UPDATE `riders` SET `retired` = :retired WHERE `id` = :id;');
+        return $query->execute(
+            [
+                'retired' => $retired,
+                'id' => $id
+            ]
+        );
     }
 }

@@ -23,9 +23,16 @@ if ($riders) {
         $buttonClicked = $_POST[$rider->id] ?? false;
 
         if ($buttonClicked === 'Unretire') {
-            $ridersModel->toggleRiderRetirement($rider->id, 0) ? header('Location: retired.php') : header('Location: retired.php?error=1');
+            if ($ridersModel->toggleRiderRetirement($rider->id, 0)) {
+                header('Location: retired.php');
+                exit;
+            } else {
+                header('Location: retired.php?error=1');
+                exit;
+            }
         } elseif ($buttonClicked === 'Edit') {
             header("Location: editRider.php?id=$rider->id");
+            exit;
         }
     }
 }

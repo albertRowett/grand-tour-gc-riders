@@ -27,7 +27,7 @@ class RiderFormValidatorTest extends TestCase
         $this->sut = new RiderFormValidator(); // Instantiate before each test
     }
 
-    public function test_success_all_fields_valid(): void
+    public function testSuccessAllFieldsValid(): void
     {
         $this->assertTrue($this->sut->validateRiderForm(
             $this->name,
@@ -44,7 +44,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_no_name(): void
+    public function testFailureNoName(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             '', // name
@@ -61,7 +61,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_name_too_long(): void
+    public function testFailureNameTooLong(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             str_repeat('a', 1000), // name
@@ -78,7 +78,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_no_image(): void
+    public function testFailureNoImage(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -95,7 +95,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_image_too_long(): void
+    public function testFailureImageTooLong(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -112,7 +112,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_no_team(): void
+    public function testFailureNoTeam(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -129,7 +129,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_team_too_long(): void
+    public function testFailureTeamTooLong(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -146,7 +146,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_no_nation(): void
+    public function testFailureNoNation(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -163,7 +163,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_nation_too_long(): void
+    public function testFailureNationTooLong(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -180,7 +180,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_no_dob(): void
+    public function testFailureNoDob(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -197,7 +197,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_invalid_dob(): void
+    public function testFailureInvalidDob(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -214,7 +214,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_incorrect_dob_format(): void
+    public function testFailureIncorrectDobFormat(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -231,7 +231,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_giro_gc_not_integer(): void
+    public function testFailureGiroGcNotInteger(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -248,7 +248,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_giro_gc_negative(): void
+    public function testFailureGiroGcNegative(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -265,7 +265,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_giro_gc_too_large(): void
+    public function testFailureGiroGcTooLarge(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -282,7 +282,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_tour_gc_not_integer(): void
+    public function testFailureTourGcNotInteger(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -299,7 +299,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_tour_gc_negative(): void
+    public function testFailureTourGcNegative(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -316,7 +316,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_tour_gc_too_large(): void
+    public function testFailureTourGcTooLarge(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -333,7 +333,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_vuelta_gc_not_integer(): void
+    public function testFailureVueltaGcNotInteger(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -350,7 +350,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_vuelta_gc_negative(): void
+    public function testFailureVueltaGcNegative(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -367,7 +367,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_vuelta_gc_too_large(): void
+    public function testFailureVueltaGcTooLarge(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -384,7 +384,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_giro_stages_not_integer(): void
+    public function testFailureGiroStagesNotInteger(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -401,7 +401,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_giro_stages_negative(): void
+    public function testFailureGiroStagesNegative(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -418,7 +418,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_giro_stages_too_large(): void
+    public function testFailureGiroStagesTooLarge(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -435,7 +435,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_tour_stages_not_integer(): void
+    public function testFailureTourStagesNotInteger(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -452,7 +452,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_tour_stages_negative(): void
+    public function testFailureTourStagesNegative(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -469,7 +469,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_tour_stages_too_large(): void
+    public function testFailureTourStagesTooLarge(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -486,7 +486,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_vuelta_stages_not_integer(): void
+    public function testFailureVueltaStagesNotInteger(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -503,7 +503,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_vuelta_stages_negative(): void
+    public function testFailureVueltaStagesNegative(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -520,7 +520,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_failure_vuelta_stages_too_large(): void
+    public function testFailureVueltaStagesTooLarge(): void
     {
         $this->assertFalse($this->sut->validateRiderForm(
             $this->name,
@@ -537,7 +537,7 @@ class RiderFormValidatorTest extends TestCase
         ));
     }
 
-    public function test_malformed_name_not_a_string(): void
+    public function testMalformedNameNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -555,7 +555,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_image_not_a_string(): void
+    public function testMalformedImageNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -573,7 +573,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_team_not_a_string(): void
+    public function testMalformedTeamNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -591,7 +591,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_nation_not_a_string(): void
+    public function testMalformedNationNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -609,7 +609,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_dob_not_a_string(): void
+    public function testMalformedDobNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -627,7 +627,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_giro_gc_not_a_string(): void
+    public function testMalformedGiroGcNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -645,7 +645,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_tour_gc_not_a_string(): void
+    public function testMalformedTourGcNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -663,7 +663,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_vuelta_gc_not_a_string(): void
+    public function testMalformedVueltaGcNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -681,7 +681,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_giro_stages_not_a_string(): void
+    public function testMalformedGiroStagesNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -699,7 +699,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_tour_stages_not_a_string(): void
+    public function testMalformedTourStagesNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(
@@ -717,7 +717,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function test_malformed_vuelta_stages_not_a_string(): void
+    public function testMalformed_VueltaStagesNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(

@@ -21,14 +21,20 @@ class RiderFormValidator
     ): bool {
         foreach ([$name, $image, $team, $nation] as $field) {
             $trimmedField = trim($field);
-            if ($trimmedField === '' || strlen($trimmedField) > 999) return false; // varchar with max length 999 in DB
+            if ($trimmedField === '' || strlen($trimmedField) > 999) { // varchar with max length 999 in DB
+                return false;
+            }
         }
 
-        if (!$this->isValidDate($dob)) return false;
+        if (!$this->isValidDate($dob)) {
+            return false;
+        }
 
         foreach ([$giroGc, $tourGc, $vueltaGc, $giroStages, $tourStages, $vueltaStages] as $field) {
             $fieldInt = intval($field);
-            if ($fieldInt != $field || $fieldInt < 0 || $fieldInt > 255) return false; // tinyint in DB, so cannot exceed 255
+            if ($fieldInt != $field || $fieldInt < 0 || $fieldInt > 255) { // tinyint in DB, so cannot exceed 255
+                return false;
+            }
         }
 
         return true;

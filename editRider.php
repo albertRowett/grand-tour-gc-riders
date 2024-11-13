@@ -111,12 +111,20 @@ if ($name !== false) { // Prevent validation attempt on page load
                 $vueltaStages
             )
         ) {
-            $rider->retired ? header('Location: retired.php') : header('Location: index.php');
+            if ($rider->retired) {
+                header('Location: retired.php');
+                exit;
+            } else {
+                header('Location: index.php');
+                exit;
+            }
         } else {
             header("Location: editRider.php?id=$riderId&error=1");
+            exit;
         };
     } else {
         header("Location: editRider.php?id=$riderId&error=1");
+        exit;
     }
 }
 

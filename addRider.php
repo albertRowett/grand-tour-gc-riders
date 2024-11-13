@@ -99,11 +99,14 @@ if ($name !== false) { // Prevent validation attempt on page load
             )
         ) {
             header('Location: index.php');
+            exit;
         } else {
             header('Location: addRider.php?error=1');
+            exit;
         };
     } else {
         header('Location: addRider.php?error=1');
+        exit;
     }
 }
 
