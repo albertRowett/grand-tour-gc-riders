@@ -2,7 +2,7 @@
 const links = document.querySelectorAll('nav a');
 var url = window.location.href;
 if (url.includes('?')) {
-    url = url.slice(0, url.lastIndexOf('?'));
+    url = url.slice(0, url.indexOf('?'));
 }
 
 links.forEach(link => {
