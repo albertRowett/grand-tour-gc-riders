@@ -717,7 +717,7 @@ class RiderFormValidatorTest extends TestCase
         );
     }
 
-    public function testMalformed_VueltaStagesNotString(): void
+    public function testMalformedVueltaStagesNotString(): void
     {
         $this->expectException(TypeError::class);
         $this->sut->validateRiderForm(

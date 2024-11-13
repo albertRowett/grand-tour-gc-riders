@@ -19,8 +19,7 @@ class IndexHtml
         ?int $selectedTeamId,
         array|false $nations,
         ?int $selectedNationId
-    ): void
-    {
+    ): void {
         echo "
         <main>
             <form class='filters'>
