@@ -19,10 +19,9 @@ $headerHtml = new HeaderHtml();
 $indexHtml = new IndexHtml();
 $footerHtml = new FooterHtml();
 
-$teamId = $_GET['team'] ?? null;
-$teamId = $teamId === '0' ? null : $teamId;
+$teamId = $_GET['team'] ?? '0';
 if (
-    $teamId !== null
+    $teamId !== '0'
     && (intval($teamId) != $teamId // short-circuit DB check if $teamId is non-int
     || $teamsModel->checkForTeamById($teamId) === false)
 ) {
@@ -30,10 +29,9 @@ if (
     exit;
 }
 
-$nationId = $_GET['nation'] ?? null;
-$nationId = $nationId === '0' ? null : $nationId;
+$nationId = $_GET['nation'] ?? '0';
 if (
-    $nationId !== null
+    $nationId !== '0'
     && (intval($nationId) != $nationId // short-circuit DB check if $nationId is non-int
     || $nationsModel->checkForNationById($nationId) === false)
 ) {
@@ -52,7 +50,7 @@ if ($riders) {
 
         if ($buttonClicked === 'Retire') {
             if ($ridersModel->toggleRiderRetirement($rider->id, 1)) {
-                header('Location: index.php');
+                header("Location: index.php?team=$teamId&nation=$nationId");
                 exit;
             } else {
                 header('Location: index.php?error=1');

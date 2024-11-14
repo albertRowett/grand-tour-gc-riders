@@ -16,9 +16,9 @@ class IndexHtml
     public function display(
         array|false $riders,
         array|false $teams,
-        ?int $selectedTeamId,
+        int $selectedTeamId,
         array|false $nations,
-        ?int $selectedNationId
+        int $selectedNationId
     ): void {
         echo "
         <main>
@@ -26,7 +26,7 @@ class IndexHtml
                 <div>
                     <label for='teams'>Filter by team:</label>
                     <select name='team' id='teams' onchange='this.form.submit()'>
-                        <option value='0'" . ($selectedTeamId === null ? ' selected' : '') . ">All teams</option>
+                        <option value='0'" . ($selectedTeamId === 0 ? ' selected' : '') . ">All teams</option>
         ";
 
         if ($teams) {
@@ -42,7 +42,7 @@ class IndexHtml
                 <div>
                     <label for='nations'>Filter by nation:</label>
                     <select name='nation' id='nations' onchange='this.form.submit()'>
-                        <option value='0'" . ($selectedNationId === null ? ' selected' : '') . ">All nations</option>
+                        <option value='0'" . ($selectedNationId === 0 ? ' selected' : '') . ">All nations</option>
         ";
 
         if ($nations) {
