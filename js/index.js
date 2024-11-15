@@ -1,6 +1,6 @@
 // Highlight name of active page in navbar:
 const links = document.querySelectorAll('nav a');
-var url = window.location.href;
+let url = window.location.href;
 if (url.includes('?')) {
     url = url.slice(0, url.indexOf('?'));
 }
