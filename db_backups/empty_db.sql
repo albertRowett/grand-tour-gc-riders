@@ -6,7 +6,7 @@
 # https://github.com/Sequel-Ace/Sequel-Ace
 #
 # Host: 127.0.0.1 (MySQL 11.3.2-MariaDB-1:11.3.2+maria~ubu2204)
-# Database: grand-tour-gc-riders
+# Database: grand_tour_gc_riders
 # Generation Time: 2024-11-22 13:22:01 +0000
 # ************************************************************
 
