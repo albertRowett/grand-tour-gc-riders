@@ -27,19 +27,19 @@ This project gave me a better understanding of database interactions and a great
 
 ### Mobile
 
-<img src="./images/README_screenshots/mobile_index.png" alt="Mobile view of riders on the index page" width="186.15" height=331.2 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/mobile_filtered.png" alt="Mobile view of a 'nationality = Danish' filter applied on the index page" width="186.15" height=331.2 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/mobile_edit.png" alt="Mobile view of Jonas Vingegaard's 'edit rider' form" width="186.15" height=331.2 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/mobile_add.png" alt="Mobile view of the 'add rider' form" width="186.15" height=331.2 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/mobile_retired.png" alt="Mobile view of riders on the retired page" width="186.15" height=331.2 /> &nbsp;&nbsp;&nbsp;
+<img src="./images/README_screenshots/mobile_index.png" alt="Mobile view of riders on the index page" width="155.25" height="276" /> &nbsp;
+<img src="./images/README_screenshots/mobile_filtered.png" alt="Mobile view of a 'nationality = Danish' filter applied on the index page" width="155.25" height="276" /> &nbsp;
+<img src="./images/README_screenshots/mobile_edit.png" alt="Mobile view of Jonas Vingegaard's 'edit rider' form" width="155.25" height="276" /> &nbsp;
+<img src="./images/README_screenshots/mobile_add.png" alt="Mobile view of the 'add rider' form" width="155.25" height="276" /> &nbsp;
+<img src="./images/README_screenshots/mobile_retired.png" alt="Mobile view of riders on the retired page" width="155.25" height="276" />
 
 ### Desktop
 
-<img src="./images/README_screenshots/desktop_index.png" alt="Desktop view of riders on the index page" width="432" height=270 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/desktop_filtered.png" alt="Desktop view of a 'nationality = Danish' filter applied on the index page" width="432" height=270 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/desktop_edit.png" alt="Desktop view of Jonas Vingegaard's 'edit rider' form" width="432" height=270 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/desktop_add.png" alt="Desktop view of the 'add rider' form" width="432" height=270 /> &nbsp;&nbsp;&nbsp;
-<img src="./images/README_screenshots/desktop_retired.png" alt="Desktop view of riders on the retired page" width="432" height=270 /> &nbsp;&nbsp;&nbsp;
+<img src="./images/README_screenshots/desktop_index.png" alt="Desktop view of riders on the index page" width="360" height="225" /> &nbsp;
+<img src="./images/README_screenshots/desktop_filtered.png" alt="Desktop view of a 'nationality = Danish' filter applied on the index page" width="360" height="225" /> &nbsp;
+<img src="./images/README_screenshots/desktop_edit.png" alt="Desktop view of Jonas Vingegaard's 'edit rider' form" width="360" height="225" /> &nbsp;
+<img src="./images/README_screenshots/desktop_add.png" alt="Desktop view of the 'add rider' form" width="360" height="225" /> &nbsp;
+<img src="./images/README_screenshots/desktop_retired.png" alt="Desktop view of riders on the retired page" width="360" height="225" />
 
 ## Installation
 
