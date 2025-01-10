@@ -16,7 +16,7 @@ class TeamsModel
 
     public function getTeams(): array|false
     {
-        $query = $this->db->prepare('SELECT `id`, `team` FROM `teams` ORDER BY `team` ASC;');
+        $query = $this->db->prepare('SELECT `id`, `team`, `active` FROM `teams` ORDER BY `team` ASC;');
         $query->execute();
         $data = $query->fetchAll();
 
@@ -28,7 +28,8 @@ class TeamsModel
         foreach ($data as $datum) {
             $team = new Team(
                 $datum['id'],
-                $datum['team']
+                $datum['team'],
+                $datum['active']
             );
             $teams[] = $team;
         }
@@ -56,7 +57,16 @@ class TeamsModel
 
     public function addTeam(string $team): bool
     {
-        $query = $this->db->prepare('INSERT INTO `teams` (`team`) VALUES (:team);');
+        $query = $this->db->prepare('
+            INSERT INTO `teams` (
+                `team`,
+                `active`
+            )
+            VALUES (
+                :team,
+                1
+            );
+        ');
         return $query->execute(['team' => $team]);
     }
 }
