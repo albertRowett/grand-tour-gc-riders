@@ -1,6 +1,6 @@
 # Grand Tour GC Riders - Collection App
 
-Full-stack PHP web app for collecting and showcasing the top Grand Tour general classification (GC) riders.
+Database-backed web app showcasing professional cycling’s top general classification (GC) riders.
 
 [Live site](https://grand-tour-gc-riders.2023-bertr.dev.io-academy.uk)
 

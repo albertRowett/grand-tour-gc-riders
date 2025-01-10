@@ -15,7 +15,7 @@ class HeadHtml
 
                 <title>Grand Tour GC Riders</title>
 
-                <meta name="description" content="Collection of the top grand tour GC riders">
+                <meta name="description" content="Web app showcasing professional cycling\'s top general classification (GC) riders">
                 <meta name="author" content="Albert Rowett">
                 <meta property="og:title" content="Grand Tour GC Riders" />
                 <meta property="og:type" content="website" />
