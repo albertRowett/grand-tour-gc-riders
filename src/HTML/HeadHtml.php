@@ -33,7 +33,7 @@ class HeadHtml
                 <link rel="shortcut icon" href="images/favicon.svg">
                 <link rel="apple-touch-icon" href="images/favicon.svg">
 
-                <script defer src="js/index.js"></script>
+                <script defer src="js/script.js"></script>
             </head>
         ';
     }
