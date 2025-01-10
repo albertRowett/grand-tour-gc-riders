@@ -1,7 +1,10 @@
 // Highlight name of active page in navbar:
 const links = document.querySelectorAll('nav a');
 let url = window.location.href;
-if (url.includes('?')) {
+if (!url.includes('.php')) {
+    // If no '.php' in url, user must be on index page, which corresponds to first element in 'links' NodeList
+    url = links[0].href;
+} else if (url.includes('?')) {
     url = url.slice(0, url.indexOf('?'));
 }
 
