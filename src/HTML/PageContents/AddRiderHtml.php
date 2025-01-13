@@ -62,7 +62,7 @@ class AddRiderHtml
                     <div class='riderFormSubmit'>
                         <p class='validationErrorMsg hidden'>Please enter valid details for all fields</p>
                         <input type='submit' name='submit' value='Submit' />
-                    <div>
+                    </div>
                 </form>
             </div>
         </main>
