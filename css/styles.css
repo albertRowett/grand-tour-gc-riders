@@ -194,3 +194,19 @@ input[type='number'] {
 .hidden {
     display: none;
 }
+
+/* Only applicable to manageTeams HTML: */
+.teamsFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamCheckbox {
+    font-weight: 400;
+}
+
+.teamsFormSubmit {
+    margin-top: 0.5rem;
+    text-align: center;
+}
