@@ -4,13 +4,15 @@ namespace Collection\HTML\PageContents;
 
 class ManageTeamsHTML
 {
-    private function manageTeamsError() {
+    private function manageTeamsError()
+    {
         if (isset($_GET['error']) && $_GET['error'] === '1') {
             return 'An error occurred while updating the teams list. Please try again later.';
         }
     }
 
-    public function display(array|false $teams): void {
+    public function display(array|false $teams): void
+    {
         echo "
         <main>
             <p class='errorMsg'>{$this->manageTeamsError()}</p>
@@ -32,12 +34,12 @@ class ManageTeamsHTML
             ";
             }
 
-        echo "
-            <div class='teamsFormSubmit'>
-                <input type='submit' name='submit' value='Submit' />
-            </div>
-        </form>
-        ";
+            echo "
+                <div class='teamsFormSubmit'>
+                    <input type='submit' name='submit' value='Submit' />
+                </div>
+            </form>
+            ";
         }
 
         echo "
