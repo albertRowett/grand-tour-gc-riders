@@ -18,8 +18,8 @@ $footerHtml = new FooterHtml();
 $retiredRiders = $ridersModel->getRiders(1, 0, 0);
 
 // Handle form submission (edit/unretire rider)
-if ($riders) {
-    foreach ($riders as $rider) {
+if ($retiredRiders) {
+    foreach ($retiredRiders as $rider) {
         $buttonClicked = $_POST[$rider->id] ?? false;
 
         if ($buttonClicked === 'Unretire') {

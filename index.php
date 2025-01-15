@@ -44,8 +44,8 @@ $activeTeams = $teamsModel->getTeams(1);
 $nations = $nationsModel->getNations();
 
 // Handle form submission (edit/retire rider)
-if ($riders) {
-    foreach ($riders as $rider) {
+if ($activeRiders) {
+    foreach ($activeRiders as $rider) {
         $buttonClicked = $_POST[$rider->id] ?? false;
 
         if ($buttonClicked === 'Retire') {
