@@ -10,7 +10,7 @@ class HeaderHtml
         <body>
             <header>
                 <a href='manageTeams.php' class='settingsIcon'>
-                    <img src='./images/settings.svg' alt='Settings icon' />
+                    <img src='./images/settingsIcon.svg' alt='Settings icon' />
                 </a>
                 <h1>Grand Tour GC Riders</h1>
                 <nav>
