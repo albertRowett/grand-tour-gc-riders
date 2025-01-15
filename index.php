@@ -39,7 +39,7 @@ if (
     exit;
 }
 
-$riders = $ridersModel->getRiders(0, $teamId, $nationId);
+$activeRiders = $ridersModel->getRiders(0, $teamId, $nationId);
 $activeTeams = $teamsModel->getTeams(1);
 $nations = $nationsModel->getNations();
 
@@ -66,5 +66,5 @@ if ($riders) {
 // Display page
 $headHtml->display();
 $headerHtml->display();
-$indexHtml->display($riders, $activeTeams, $teamId, $nations, $nationId);
+$indexHtml->display($activeRiders, $activeTeams, $teamId, $nations, $nationId);
 $footerHtml->display();

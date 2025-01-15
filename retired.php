@@ -15,7 +15,7 @@ $headerHtml = new HeaderHtml();
 $retiredHtml = new RetiredHtml();
 $footerHtml = new FooterHtml();
 
-$riders = $ridersModel->getRiders(1, 0, 0);
+$retiredRiders = $ridersModel->getRiders(1, 0, 0);
 
 // Handle form submission (edit/unretire rider)
 if ($riders) {
@@ -40,5 +40,5 @@ if ($riders) {
 // Display page
 $headHtml->display();
 $headerHtml->display();
-$retiredHtml->display($riders);
+$retiredHtml->display($retiredRiders);
 $footerHtml->display();
