@@ -9,6 +9,9 @@ class HeaderHtml
         echo "
         <body>
             <header>
+                <a href='manageTeams.php' class='settingsIcon'>
+                    <img src='./images/settings.svg' alt='Settings icon' />
+                </a>
                 <h1>Grand Tour GC Riders</h1>
                 <nav>
                     <a href='index.php'>View Riders</a>

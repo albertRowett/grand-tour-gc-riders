@@ -72,7 +72,7 @@ class IndexHtml
                 echo "
                 <div class='riderContainer'>
                     <h3>$rider->name</h3>
-                    <img src='$rider->image' alt='$rider->name in $rider->team jersey' />
+                    <img src='$rider->image' alt='$rider->name in $rider->team jersey' class='riderImg' />
                     <p><b>Team:</b> $rider->team</p>
                     <div class='flexrow'>
                         <p><b>Nation:</b> $rider->nation</p>
