@@ -38,25 +38,25 @@ class RidersModel
                     ON `riders`.`nation_id` = `nations`.`id`
             WHERE `riders`.`retired` = :retired
         ';
+        $params = ['retired' => $retired];
+
         if ($teamId !== 0) {
             $queryString .= ' AND `teams`.`id` = :teamId';
+            $params['teamId'] = $teamId;
         }
+
         if ($nationId !== 0) {
             $queryString .= ' AND `nations`.`id` = :nationId';
+            $params['nationId'] = $nationId;
         }
+
         $queryString .= '
             ORDER BY (`riders`.`giro_gc` + `riders`.`tour_gc` + `riders`.`vuelta_gc`) DESC,
             (`riders`.`giro_stages` + `riders`.`tour_stages` + `riders`.`vuelta_stages`) DESC,
             `riders`.`dob` DESC;
         ';
+
         $query = $this->db->prepare($queryString);
-        $params = ['retired' => $retired];
-        if ($teamId !== 0) {
-            $params['teamId'] = $teamId;
-        }
-        if ($nationId !== 0) {
-            $params['nationId'] = $nationId;
-        }
         $query->execute($params);
         $data = $query->fetchAll();
 
