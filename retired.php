@@ -22,16 +22,16 @@ if ($retiredRiders) {
     foreach ($retiredRiders as $rider) {
         $buttonClicked = $_POST[$rider->id] ?? false;
 
-        if ($buttonClicked === 'Unretire') {
-            if ($ridersModel->toggleRiderRetirement($rider->id, 0)) {
-                header('Location: retired.php');
-                exit;
-            } else {
+        if ($buttonClicked === 'Edit') {
+            header("Location: editRider.php?id=$rider->id");
+            exit;
+        } elseif ($buttonClicked === 'Unretire') {
+            if ($ridersModel->toggleRiderRetirement($rider->id, 0) === false) { // Catch rider update error
                 header('Location: retired.php?error=1');
                 exit;
             }
-        } elseif ($buttonClicked === 'Edit') {
-            header("Location: editRider.php?id=$rider->id");
+
+            header('Location: retired.php');
             exit;
         }
     }

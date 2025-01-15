@@ -60,70 +60,74 @@ if ($name !== false) { // Prevent validation attempt on page load
             $giroStages,
             $tourStages,
             $vueltaStages
-        )
+        ) === false // i.e. validation failure
     ) {
-        $team = trim($team);
-        $teamId = $teamsModel->getIdFromTeam($team);
-        if ($teamId === false) { // i.e. team is not in DB
-            if ($teamsModel->addTeam($team)) {
-                $teamId = $teamsModel->getIdFromTeam($team);
-                if ($teamId === false) { // Catch error
-                    header("Location: editRider.php?id=$riderId&error=1");
-                    exit;
-                }
-            } else { // Catch error
-                header("Location: editRider.php?id=$riderId&error=1");
-                exit;
-            }
-        }
+        header("Location: editRider.php?id=$riderId&error=1");
+        exit;
+    }
 
-        $nation = trim($nation);
-        $nationId = $nationsModel->getIdFromNation($nation);
-        if ($nationId === false) { // i.e. nation is not in DB
-            if ($nationsModel->addNation($nation)) {
-                $nationId = $nationsModel->getIdFromNation($nation);
-                if ($nationId === false) { // Catch error
-                    header("Location: editRider.php?id=$riderId&error=1");
-                    exit;
-                }
-            } else { // Catch error
-                header("Location: editRider.php?id=$riderId&error=1");
-                exit;
-            }
-        }
+    $team = trim($team);
+    $teamId = $teamsModel->getIdFromTeam($team);
 
-        $name = trim($name);
-        $image = trim($image);
-
-        if (
-            $ridersModel->editRider(
-                $riderId,
-                $name,
-                $image,
-                $teamId,
-                $nationId,
-                $dob,
-                $giroGc,
-                $tourGc,
-                $vueltaGc,
-                $giroStages,
-                $tourStages,
-                $vueltaStages
-            )
-        ) {
-            if ($rider->retired) {
-                header('Location: retired.php');
-                exit;
-            } else {
-                header('Location: index.php');
-                exit;
-            }
-        } else {
+    if ($teamId === false) { // i.e. team is not in DB
+        if ($teamsModel->addTeam($team) === false) { // Catch team addition error
             header("Location: editRider.php?id=$riderId&error=1");
             exit;
-        };
-    } else {
+        }
+
+        $teamId = $teamsModel->getIdFromTeam($team);
+
+        if ($teamId === false) { // Catch id retrieval error
+            header("Location: editRider.php?id=$riderId&error=1");
+            exit;
+        }
+    }
+
+    $nation = trim($nation);
+    $nationId = $nationsModel->getIdFromNation($nation);
+
+    if ($nationId === false) { // i.e. nation is not in DB
+        if ($nationsModel->addNation($nation) === false) { // Catch nation addition error
+            header("Location: editRider.php?id=$riderId&error=1");
+            exit;
+        }
+
+        $nationId = $nationsModel->getIdFromNation($nation);
+
+        if ($nationId === false) { // Catch id retrieval error
+            header("Location: editRider.php?id=$riderId&error=1");
+            exit;
+        }
+    }
+
+    $name = trim($name);
+    $image = trim($image);
+
+    if (
+        $ridersModel->editRider(
+            $riderId,
+            $name,
+            $image,
+            $teamId,
+            $nationId,
+            $dob,
+            $giroGc,
+            $tourGc,
+            $vueltaGc,
+            $giroStages,
+            $tourStages,
+            $vueltaStages
+        ) === false // Catch rider update error
+    ) {
         header("Location: editRider.php?id=$riderId&error=1");
+        exit;
+    }
+
+    if ($rider->retired) {
+        header('Location: retired.php');
+        exit;
+    } else {
+        header('Location: index.php');
         exit;
     }
 }

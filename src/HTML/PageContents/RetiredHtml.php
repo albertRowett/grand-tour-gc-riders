@@ -21,7 +21,9 @@ class RetiredHtml
             <div class='ridersContainer'>
         ";
 
-        if ($riders) {
+        if (!$riders) {
+            echo "<p class='noRidersMsg'>No riders found</p>";
+        } else {
             $today = new DateTime(date('y-m-d'));
 
             foreach ($riders as $rider) {
@@ -57,8 +59,6 @@ class RetiredHtml
                 </div>
                 ";
             }
-        } else {
-            echo "<p class='noRidersMsg'>No riders found</p>";
         }
 
         echo '
