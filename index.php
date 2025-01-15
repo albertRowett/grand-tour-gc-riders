@@ -23,7 +23,7 @@ $teamId = $_GET['team'] ?? '0';
 if (
     $teamId !== '0'
     && (intval($teamId) != $teamId // short-circuit DB check if $teamId is non-int
-    || $teamsModel->checkForTeamById($teamId) === false)
+    || $teamsModel->checkForTeamById($teamId, true) === false)
 ) {
     header('Location: index.php');
     exit;

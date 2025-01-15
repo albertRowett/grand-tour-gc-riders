@@ -57,9 +57,15 @@ class TeamsModel
         return false;
     }
 
-    public function checkForTeamById(int $id): bool
+    public function checkForTeamById(int $id, bool $teamMustBeActive): bool
     {
-        $query = $this->db->prepare('SELECT 1 FROM `teams` WHERE `id` = :id;');
+        $queryString = 'SELECT 1 FROM `teams` WHERE `id` = :id';
+
+        if ($teamMustBeActive) {
+            $queryString .= ' AND `active` = 1;';
+        }
+
+        $query = $this->db->prepare($queryString);
         $query->execute(['id' => $id]);
         return (bool) $query->fetch();
     }

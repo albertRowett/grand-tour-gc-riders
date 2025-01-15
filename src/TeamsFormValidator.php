@@ -22,7 +22,7 @@ class TeamsFormValidator
             if (
                 $teamId < 1
                 || intval($teamId) !== $teamId // short-circuit DB check if $teamId is not positive int
-                || $teamsModel->checkForTeamById($teamId) === false
+                || $teamsModel->checkForTeamById($teamId, false) === false
             ) {
                 return false;
             }
