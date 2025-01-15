@@ -14,10 +14,19 @@ class TeamsModel
         $this->db = $db;
     }
 
-    public function getTeams(): array|false
+    public function getTeams(?int $active = null): array|false
     {
-        $query = $this->db->prepare('SELECT `id`, `team`, `active` FROM `teams` ORDER BY `team` ASC;');
-        $query->execute();
+        $queryString = 'SELECT `id`, `team`, `active` FROM `teams`';
+        $params = [];
+
+        if ($active !== null) {
+            $queryString .= ' WHERE `active` = :active';
+            $params['active'] = $active;
+        }
+
+        $queryString .= ' ORDER BY `team` ASC;';
+        $query = $this->db->prepare($queryString);
+        $query->execute($params);
         $data = $query->fetchAll();
 
         if (!$data) {

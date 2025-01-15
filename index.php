@@ -40,7 +40,7 @@ if (
 }
 
 $riders = $ridersModel->getRiders(0, $teamId, $nationId);
-$teams = $teamsModel->getTeams();
+$activeTeams = $teamsModel->getTeams(1);
 $nations = $nationsModel->getNations();
 
 // Handle form submission (edit/retire rider)
@@ -66,5 +66,5 @@ if ($riders) {
 // Display page
 $headHtml->display();
 $headerHtml->display();
-$indexHtml->display($riders, $teams, $teamId, $nations, $nationId);
+$indexHtml->display($riders, $activeTeams, $teamId, $nations, $nationId);
 $footerHtml->display();
