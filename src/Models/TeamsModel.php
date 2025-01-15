@@ -69,4 +69,13 @@ class TeamsModel
         ');
         return $query->execute(['team' => $team]);
     }
+
+    public function changeTeamStatus(array $ids, int $active): bool
+    {
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $params = array_merge([$active], $ids);
+
+        $query = $this->db->prepare("UPDATE `teams` SET `active` = ? WHERE `id` IN ($placeholders);");
+        return $query->execute($params);
+    }
 }
