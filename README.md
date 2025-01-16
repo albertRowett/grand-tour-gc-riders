@@ -1,6 +1,6 @@
 # Grand Tour GC Riders - Collection App
 
-Database-backed web app showcasing professional cycling’s top general classification (GC) riders.
+Database-backed PHP web app showcasing professional cycling’s top general classification (GC) riders.
 
 [Live site](https://grand-tour-gc-riders.2023-bertr.dev.io-academy.uk)
 
@@ -29,17 +29,19 @@ This project gave me a better understanding of database interactions and a great
 
 <img src="./images/README_screenshots/mobile_index.png" alt="Mobile view of riders on the index page" width="155.25" height="276" /> &nbsp;
 <img src="./images/README_screenshots/mobile_filtered.png" alt="Mobile view of a 'nationality = Danish' filter applied on the index page" width="155.25" height="276" /> &nbsp;
-<img src="./images/README_screenshots/mobile_edit.png" alt="Mobile view of Jonas Vingegaard's 'edit rider' form" width="155.25" height="276" /> &nbsp;
-<img src="./images/README_screenshots/mobile_add.png" alt="Mobile view of the 'add rider' form" width="155.25" height="276" /> &nbsp;
-<img src="./images/README_screenshots/mobile_retired.png" alt="Mobile view of riders on the retired page" width="155.25" height="276" />
+<img src="./images/README_screenshots/mobile_edit.png" alt="Mobile view of Jonas Vingegaard's 'edit rider' page" width="155.25" height="276" /> &nbsp;
+<img src="./images/README_screenshots/mobile_add.png" alt="Mobile view of the 'add rider' page" width="155.25" height="276" /> &nbsp;
+<img src="./images/README_screenshots/mobile_retired.png" alt="Mobile view of riders on the 'retired' page" width="155.25" height="276" />
+<img src="./images/README_screenshots/mobile_teams.png" alt="Mobile view of the 'manage teams' page" width="155.25" height="276" />
 
 ### Desktop
 
 <img src="./images/README_screenshots/desktop_index.png" alt="Desktop view of riders on the index page" width="360" height="225" /> &nbsp;
 <img src="./images/README_screenshots/desktop_filtered.png" alt="Desktop view of a 'nationality = Danish' filter applied on the index page" width="360" height="225" /> &nbsp;
-<img src="./images/README_screenshots/desktop_edit.png" alt="Desktop view of Jonas Vingegaard's 'edit rider' form" width="360" height="225" /> &nbsp;
-<img src="./images/README_screenshots/desktop_add.png" alt="Desktop view of the 'add rider' form" width="360" height="225" /> &nbsp;
-<img src="./images/README_screenshots/desktop_retired.png" alt="Desktop view of riders on the retired page" width="360" height="225" />
+<img src="./images/README_screenshots/desktop_edit.png" alt="Desktop view of Jonas Vingegaard's 'edit rider' page" width="360" height="225" /> &nbsp;
+<img src="./images/README_screenshots/desktop_add.png" alt="Desktop view of the 'add rider' page" width="360" height="225" /> &nbsp;
+<img src="./images/README_screenshots/desktop_retired.png" alt="Desktop view of riders on the 'retired' page" width="360" height="225" />
+<img src="./images/README_screenshots/desktop_teams.png" alt="Desktop view of the 'manage teams' page" width="360" height="225" />
 
 ## Installation
 
@@ -98,10 +100,11 @@ Advice and assistance during the initial build:
 
 -   My trainer [@ashleycoles](https://github.com/ashleycoles) at [iO Academy](https://io-academy.uk)
 
-Favicon image source:
+Icon image sources:
 
 -   [freesvg.org](https://freesvg.org)
+-   [svgrepo.com](https://www.svgrepo.com)
 
 <br>
 
-_All last accessed 26 November 2024_
+_All last accessed 16 January 2025_
