@@ -3,7 +3,7 @@
 use Collection\HTML\HeadHtml;
 use Collection\HTML\PageContents\FooterHtml;
 use Collection\HTML\PageContents\HeaderHtml;
-use Collection\HTML\PageContents\ManageTeamsHTML;
+use Collection\HTML\PageContents\ManageTeamsHtml;
 use Collection\Models\TeamsModel;
 use Collection\TeamsFormValidator;
 
@@ -14,7 +14,7 @@ $teamsModel = new TeamsModel($db);
 $teamsFormValidator = new TeamsFormValidator();
 $headHtml = new HeadHtml();
 $headerHtml = new HeaderHtml();
-$manageTeamsHtml = new ManageTeamsHTML();
+$manageTeamsHtml = new ManageTeamsHtml();
 $footerHtml = new FooterHtml();
 
 $teams = $teamsModel->getTeams();

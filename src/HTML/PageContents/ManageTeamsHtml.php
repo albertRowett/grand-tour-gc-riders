@@ -2,7 +2,7 @@
 
 namespace Collection\HTML\PageContents;
 
-class ManageTeamsHTML
+class ManageTeamsHtml
 {
     private function manageTeamsError()
     {
