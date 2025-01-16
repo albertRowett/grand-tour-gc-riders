@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 11.3.2-MariaDB-1:11.3.2+maria~ubu2204)
 # Database: grand_tour_gc_riders
-# Generation Time: 2024-11-22 13:22:01 +0000
+# Generation Time: 2025-01-16 08:35:54 +0000
 # ************************************************************
 
 
@@ -65,6 +65,7 @@ DROP TABLE IF EXISTS `teams`;
 CREATE TABLE `teams` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `team` varchar(999) NOT NULL,
+  `active` tinyint(4) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
