@@ -19,7 +19,7 @@ class HeadHtml
                 <meta name="author" content="Albert Rowett">
                 <meta property="og:title" content="Grand Tour GC Riders" />
                 <meta property="og:type" content="website" />
-                <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/ab138268-af26-4938-9cd6-e046af4660f8.png?token=fwWCvfFeW6vDsB76Lg8GZW5mN_C9r0J7Uhp5IeFwvDw&height=627&width=1200&expires=33269219737" />
+                <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/59c18b53-1856-4127-b0f0-7650a2fed7b2.png?token=FaAQGoWv2UeU80h-NbzDlqT4KdS6Uakrq_Jyab0JyU4&height=630&width=1200&expires=33273020434" />
                 <meta property="og:image:alt" content="Collection of the top grand tour GC riders" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="627" />
