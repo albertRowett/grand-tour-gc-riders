@@ -31,7 +31,7 @@ This project gave me a better understanding of database interactions and a great
 <img src="./images/README_screenshots/mobile_filtered.png" alt="Mobile view of a 'nationality = Danish' filter applied on the index page" width="155.25" height="276" /> &nbsp;
 <img src="./images/README_screenshots/mobile_edit.png" alt="Mobile view of Jonas Vingegaard's 'edit rider' page" width="155.25" height="276" /> &nbsp;
 <img src="./images/README_screenshots/mobile_add.png" alt="Mobile view of the 'add rider' page" width="155.25" height="276" /> &nbsp;
-<img src="./images/README_screenshots/mobile_retired.png" alt="Mobile view of riders on the 'retired' page" width="155.25" height="276" />
+<img src="./images/README_screenshots/mobile_retired.png" alt="Mobile view of riders on the 'retired' page" width="155.25" height="276" /> &nbsp;
 <img src="./images/README_screenshots/mobile_teams.png" alt="Mobile view of the 'manage teams' page" width="155.25" height="276" />
 
 ### Desktop
@@ -40,7 +40,7 @@ This project gave me a better understanding of database interactions and a great
 <img src="./images/README_screenshots/desktop_filtered.png" alt="Desktop view of a 'nationality = Danish' filter applied on the index page" width="360" height="225" /> &nbsp;
 <img src="./images/README_screenshots/desktop_edit.png" alt="Desktop view of Jonas Vingegaard's 'edit rider' page" width="360" height="225" /> &nbsp;
 <img src="./images/README_screenshots/desktop_add.png" alt="Desktop view of the 'add rider' page" width="360" height="225" /> &nbsp;
-<img src="./images/README_screenshots/desktop_retired.png" alt="Desktop view of riders on the 'retired' page" width="360" height="225" />
+<img src="./images/README_screenshots/desktop_retired.png" alt="Desktop view of riders on the 'retired' page" width="360" height="225" /> &nbsp;
 <img src="./images/README_screenshots/desktop_teams.png" alt="Desktop view of the 'manage teams' page" width="360" height="225" />
 
 ## Installation
