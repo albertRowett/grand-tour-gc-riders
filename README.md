@@ -2,7 +2,7 @@
 
 Database-backed PHP web app showcasing professional cycling’s top general classification (GC) riders.
 
-[Live site](https://grand-tour-gc-riders.2023-bertr.dev.io-academy.uk)
+[Live site](https://grand-tour-gc-riders.infinityfree.me/)
 
 ## Introduction
 
